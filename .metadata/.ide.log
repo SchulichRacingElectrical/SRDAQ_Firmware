@@ -700,3 +700,121 @@
 2019-12-02 14:52:17,745 [INFO] ProjectBuilder:2373 - Time for Generating toolchain IDE Files: 6465mS.
 2019-12-02 14:52:17,747 [INFO] ProjectBuilder:1505 - Time for Copy CMSIS : 1mS.
 2019-12-02 14:52:17,753 [INFO] ProjectBuilder:1505 - Time for Copy CMSIS : 0mS.
+2019-12-02 15:59:37,036 [INFO] Gpio:245 - dependency for GPIO []
+2019-12-02 15:59:37,155 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 15:59:41,833 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 15:59:42,826 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 15:59:44,961 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 15:59:45,771 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 15:59:49,403 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 15:59:49,477 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 15:59:49,657 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 15:59:53,464 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 15:59:53,497 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 15:59:53,518 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 16:38:49,079 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 242724496 Bytes (522190848)
+2019-12-02 16:38:55,325 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 251639432 Bytes (522190848)
+2019-12-02 16:38:55,762 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 263696016 Bytes (522190848)
+2019-12-02 16:38:56,403 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: SYS
+2019-12-02 16:38:56,404 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: NVIC
+2019-12-02 16:38:56,404 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: GPIO
+2019-12-02 16:38:56,408 [INFO] CodeGenerator:598 - code generatio: config db path: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\
+2019-12-02 16:38:57,211 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\license.tmp_save
+2019-12-02 16:38:57,489 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\license.tmp
+2019-12-02 16:38:57,648 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\gpio.tmp_save
+2019-12-02 16:38:57,919 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\gpio.tmp
+2019-12-02 16:38:57,976 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2019-12-02 16:38:57,983 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SYS
+2019-12-02 16:38:57,985 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2019-12-02 16:38:57,988 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2019-12-02 16:38:57,990 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2019-12-02 16:38:58,134 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_it.c_save
+2019-12-02 16:38:58,492 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_it.c
+2019-12-02 16:38:58,593 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_it.h_save
+2019-12-02 16:38:58,855 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_it.h
+2019-12-02 16:38:59,018 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_hal_msp.c_save
+2019-12-02 16:38:59,412 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_hal_msp.c
+2019-12-02 16:38:59,486 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\system.tmp_save
+2019-12-02 16:39:00,009 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\system.tmp
+2019-12-02 16:39:00,126 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_hal_conf.h_save
+2019-12-02 16:39:00,413 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_hal_conf.h
+2019-12-02 16:39:00,494 [WARN] IPConfigManager:2673 - IP not found : gpio
+2019-12-02 16:39:00,496 [WARN] CodeGenerator:2697 - IP not found : gpio
+2019-12-02 16:39:00,602 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Inc\main.h_save
+2019-12-02 16:39:00,864 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Inc\main.h
+2019-12-02 16:39:00,997 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Src\main.c_save
+2019-12-02 16:39:01,356 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Src\main.c
+2019-12-02 16:39:04,543 [INFO] ProjectBuilder:1645 - Time for Copy HAL[1] : 1884mS.
+2019-12-02 16:39:04,547 [INFO] ProjectBuilder:2206 - Project Generator version: 3.5.2
+2019-12-02 16:39:05,296 [INFO] ConfigFileManager:953 - The Die is : DIE421
+2019-12-02 16:39:09,172 [INFO] ProjectBuilder:2373 - Time for Generating toolchain IDE Files: 4625mS.
+2019-12-02 16:39:09,173 [INFO] ProjectBuilder:1505 - Time for Copy CMSIS : 1mS.
+2019-12-02 16:39:09,178 [INFO] ProjectBuilder:1505 - Time for Copy CMSIS : 1mS.
+2019-12-02 16:46:53,813 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 16:46:54,722 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 16:55:41,670 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 16:55:41,730 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 16:55:41,874 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2019-12-02 16:55:44,325 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 227818024 Bytes (792723456)
+2019-12-02 16:55:46,441 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 238303784 Bytes (792723456)
+2019-12-02 16:55:46,787 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 251935272 Bytes (792723456)
+2019-12-02 16:55:47,153 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: SYS
+2019-12-02 16:55:47,153 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: NVIC
+2019-12-02 16:55:47,154 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: GPIO
+2019-12-02 16:55:47,154 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: FATFS
+2019-12-02 16:55:47,155 [INFO] CodeGenerator:598 - code generatio: config db path: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\
+2019-12-02 16:55:47,689 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\license.tmp_save
+2019-12-02 16:55:47,890 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\license.tmp
+2019-12-02 16:55:48,072 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\gpio.tmp_save
+2019-12-02 16:55:48,238 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\gpio.tmp
+2019-12-02 16:55:48,358 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2019-12-02 16:55:48,402 [INFO] ApiDbMcu:445 - Load IP Config File for FATFS
+2019-12-02 16:55:48,429 [INFO] Middleware:1071 - No code input for Bsp Dependency
+2019-12-02 16:55:48,515 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_HalInit.tmp_save
+2019-12-02 16:55:48,660 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_HalInit.tmp
+2019-12-02 16:55:48,718 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_vars.tmp_save
+2019-12-02 16:55:48,873 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_vars.tmp
+2019-12-02 16:55:48,975 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_ext_vars.tmp_save
+2019-12-02 16:55:49,146 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_ext_vars.tmp
+2019-12-02 16:55:49,224 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_inc.tmp_save
+2019-12-02 16:55:49,359 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_inc.tmp
+2019-12-02 16:55:49,440 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\FATFS\Target\ffconf.h_save
+2019-12-02 16:55:49,652 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\FATFS\Target\ffconf.h
+2019-12-02 16:55:49,756 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.c_save
+2019-12-02 16:55:49,942 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.c
+2019-12-02 16:55:50,038 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.h_save
+2019-12-02 16:55:50,203 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.h
+2019-12-02 16:55:50,306 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.c_save
+2019-12-02 16:55:50,514 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.c
+2019-12-02 16:55:50,608 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.h_save
+2019-12-02 16:55:50,824 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.h
+2019-12-02 16:55:50,827 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2019-12-02 16:55:50,828 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SYS
+2019-12-02 16:55:50,830 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2019-12-02 16:55:50,836 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2019-12-02 16:55:50,838 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2019-12-02 16:55:50,925 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_it.c_save
+2019-12-02 16:55:51,197 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_it.c
+2019-12-02 16:55:51,274 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_it.h_save
+2019-12-02 16:55:51,458 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_it.h
+2019-12-02 16:55:51,589 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_hal_msp.c_save
+2019-12-02 16:55:51,877 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_hal_msp.c
+2019-12-02 16:55:51,926 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\system.tmp_save
+2019-12-02 16:55:52,079 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\MXTmpFiles\system.tmp
+2019-12-02 16:55:52,195 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_hal_conf.h_save
+2019-12-02 16:55:52,450 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_hal_conf.h
+2019-12-02 16:55:52,486 [WARN] IPConfigManager:2673 - IP not found : gpio
+2019-12-02 16:55:52,489 [WARN] CodeGenerator:2697 - IP not found : gpio
+2019-12-02 16:55:52,577 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Inc\main.h_save
+2019-12-02 16:55:52,844 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Inc\main.h
+2019-12-02 16:55:52,950 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Src\main.c_save
+2019-12-02 16:55:53,221 [INFO] CodeEngine:211 - Generated code: C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\Core\Src\main.c
+2019-12-02 16:55:55,676 [INFO] ProjectBuilder:1645 - Time for Copy HAL[1] : 1459mS.
+2019-12-02 16:55:55,681 [INFO] ProjectBuilder:2206 - Project Generator version: 3.5.2
+2019-12-02 16:55:56,225 [INFO] ConfigFileManager:953 - The Die is : DIE421
+2019-12-02 16:55:59,845 [INFO] ProjectBuilder:2373 - Time for Generating toolchain IDE Files: 4164mS.
+2019-12-02 16:55:59,847 [INFO] ProjectBuilder:1505 - Time for Copy CMSIS : 1mS.
+2019-12-02 16:55:59,854 [INFO] ProjectBuilder:1505 - Time for Copy CMSIS : 0mS.
+2019-12-02 16:58:53,944 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Tab changed to: Clock Configuration
+2019-12-02 16:58:54,876 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Tab changed to: Pinout & Configuration
+2019-12-02 17:04:27,613 [INFO] BlockDiagram:1827 - stop enableDisableButtons
