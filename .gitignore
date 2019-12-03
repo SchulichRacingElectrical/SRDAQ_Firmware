@@ -51,26 +51,77 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-.metadata/
-RemoteSystemsTempFiles/
-.metadata/.ide.log
-.metadata/.log
-.metadata/.plugins/org.eclipse.cdt.core/.log
-.metadata/.plugins/org.eclipse.cdt.core/Firmware.1575323019566.pdom
-.metadata/.plugins/org.eclipse.cdt.ui/Firmware.build.log
-.metadata/.plugins/org.eclipse.cdt.ui/global-build.log
-.metadata/.plugins/org.eclipse.core.resources/.projects/Firmware/.markers.snap
-.metadata/.plugins/org.eclipse.core.resources/.projects/Firmware/.syncinfo.snap
-.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers.snap
-.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.syncinfo.snap
-.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap
-.metadata/.plugins/org.eclipse.core.resources/.root/1.tree
-.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
-.metadata/.plugins/org.eclipse.core.resources/1.snap
-.metadata/.plugins/org.eclipse.core.runtime/.settings/com.st.stm32cube.common.mx.prefs
-.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.cdt.managedbuilder.core.prefs
-.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs
-.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs
-.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs
-.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
-.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml
+
+# Created by https://www.gitignore.io/api/eclipse
+# Edit at https://www.gitignore.io/?templates=eclipse
+
+### Eclipse ###
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# CDT- autotools
+.autotools
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Annotation Processing
+.apt_generated/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
+
+### Eclipse Patch ###
+# Eclipse Core
+.project
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# Annotation Processing
+.apt_generated
+
+.sts4-cache/
+
+# End of https://www.gitignore.io/api/eclipse
