@@ -24,7 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,7 +58,14 @@ static void MX_ADC1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+uint32_t value;
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc1) {
+	value = HAL_ADC_GetValue(hadc1);
+//	printf("\n\r ADC val == %d", value);
+	HAL_ADC_Start_IT(hadc1); // Re-Start ADC1 under Interrupt
+							 // this is necessary because we don'use
+							 // the Continuous Conversion Mode
+}
 /* USER CODE END 0 */
 
 /**
@@ -91,7 +98,7 @@ int main(void) {
 	MX_FATFS_Init();
 	MX_ADC1_Init();
 	/* USER CODE BEGIN 2 */
-
+//	HAL_ADC_Start_IT(&hadc1);
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -102,6 +109,7 @@ int main(void) {
 		/* USER CODE BEGIN 3 */
 		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 		HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+//		delay_value = value;
 		if (HAL_GPIO_ReadPin(GPIOC, User_BTN_Pin) == 1) {
 			delay_value = 25;
 		} else {
@@ -182,7 +190,7 @@ static void MX_ADC1_Init(void) {
 	}
 	/** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
 	 */
-	sConfig.Channel = ADC_CHANNEL_0;
+	sConfig.Channel = ADC_CHANNEL_3;
 	sConfig.Rank = 1;
 	sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
 	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK) {
