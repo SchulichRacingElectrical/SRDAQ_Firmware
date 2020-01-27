@@ -25,6 +25,7 @@ ADC_HandleTypeDef hadc1;
 
 /* USER CODE BEGIN PV */
 uint32_t value;
+uint32_t value2;
 int i = 0;
 /* USER CODE END PV */
 
@@ -39,9 +40,10 @@ static void MX_ADC1_Init(void);
 /* USER CODE BEGIN 0 */
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	//Use the ADC
-	HAL_ADC_PollForConversion(&hadc1, 10);
+	HAL_ADC_PollForConversion(&hadc1, 3);
 	value = HAL_ADC_GetValue(&hadc1);
-//	HAL_Delay(1);
+//	HAL_ADC_PollForConversion(&hadc1, 10);
+//	value2 = HAL_ADC_GetValue(&hadc1);
 	HAL_ADC_Start_IT(&hadc1);
 }
 /* USER CODE END 0 */
@@ -87,7 +89,8 @@ int main(void)
 
 		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 		HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
-		HAL_Delay(100);
+		value2=value;
+		HAL_Delay(1);
 	}
 	HAL_ADC_Stop_IT(&hadc1);
   /* USER CODE END 3 */
@@ -152,7 +155,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV8;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.ScanConvMode = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
@@ -188,6 +191,7 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
