@@ -43,10 +43,9 @@ static void MX_TIM6_Init(void);
 /* USER CODE BEGIN 0 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	HAL_ADC_Start(&hadc1);
-	HAL_ADC_PollForConversion(&hadc1, 3);
+	HAL_ADC_PollForConversion(&hadc1, 5);
 	value = HAL_ADC_GetValue(&hadc1);
-//	HAL_ADC_PollForConversion(&hadc1, 10);
-//	value2 = HAL_ADC_GetValue(&hadc1);
+	HAL_ADC_Start(&hadc1);
 	HAL_ADC_Stop(&hadc1);
 }
 
