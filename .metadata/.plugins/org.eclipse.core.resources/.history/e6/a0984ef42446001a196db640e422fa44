@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
- ******************************************************************************
- * @file           : main.c
- * @brief          : Main program body
- ******************************************************************************
- * @attention
- *
- * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
- * All rights reserved.</center></h2>
- *
- * This software component is licensed by ST under BSD 3-Clause license,
- * the "License"; You may not use this file except in compliance with the
- * License. You may obtain a copy of the License at:
- *                        opensource.org/licenses/BSD-3-Clause
- *
- ******************************************************************************
- */
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+  * All rights reserved.</center></h2>
+  *
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
+  *
+  ******************************************************************************
+  */
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -35,7 +35,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define ADC_BUF_LEN 4096
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -54,12 +53,7 @@ TIM_HandleTypeDef htim6;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-uint32_t raw_A0;
-uint32_t raw_A1;
-uint32_t A0;
-uint32_t A1;
-uint16_t adc_buf[ADC_BUF_LEN];
-int i = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -87,28 +81,21 @@ FATFS *pfs;
 DWORD fre_clust;
 uint32_t total, free_space;
 
-void send_uart(char *string) {
+void send_uart(char *string){
 	uint8_t len = strlen(string);
-	HAL_UART_Transmit(&huart1, (uint8_t*) string, len, 2000);
+	HAL_UART_Transmit(&huart1, (uint8_t *) string, len, 2000);
 }
 
-int bufsize(char *buf) {
+int bufsize(char *buf){
 	int i = 0;
-	while (*buf++ != '\0')
-		i++;
+	while (*buf++ != '\0') i++;
 	return i;
 }
 
-void bufclear(void) {
-	for (int i = 0; i < 1024; i++) {
+void bufclear (void){
+	for (int i = 0; i < 1024; i++){
 		buffer[i] = '\0';
 	}
-}
-
-//Function called by 50Hz timer interrupt
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	A0=raw_A0;
-	A1=raw_A1;
 }
 /* USER CODE END 0 */
 
@@ -148,45 +135,35 @@ int main(void)
   MX_FATFS_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-	//Enable timer interrupts
-	HAL_TIM_Base_Start_IT(&htim6);
-	HAL_ADC_Start_DMA(&hadc1, (uint32_t*) adc_buf, ADC_BUF_LEN);
-	//Mount SD Card
-	fresult = f_mount(&fs, "", 0);
-	if (fresult != FR_OK)
-		send_uart("error mounting SD CARD.... \n");
-	else
-		send_uart("SD CARD mounted....\n");
 
-	//Get total and free space
-	f_getfree("", &fre_clust, &pfs);
-	total = (uint32_t) ((pfs->n_fatent - 2) * pfs->csize * 0.5);
-	bufclear();
-	free_space = (uint32_t) (fre_clust * pfs->csize * 0.5);
+  //Mount SD Card
+  fresult = f_mount(&fs, "", 0);
+  if (fresult != FR_OK) send_uart("error mounting SD CARD.... \n");
+  else send_uart("SD CARD mounted....\n");
 
-	fresult = f_open(&fil, "file5.txt", FA_OPEN_ALWAYS | FA_READ | FA_WRITE);
-	fresult = f_write(&fil, "testing", 7, &bw);
-	f_close(&fil);
+  //Get total and free space
+  f_getfree("", &fre_clust, &pfs);
+  total = (uint32_t)((pfs->n_fatent - 2) * pfs->csize * 0.5);
+  bufclear();
+  free_space = (uint32_t)(fre_clust * pfs->csize*0.5);
 
-	int count = 0;
-	char *test[2048];
+  fresult = f_open(&fil, "file5.txt", FA_OPEN_ALWAYS | FA_READ | FA_WRITE);
+  fresult  = f_write(&fil, "testing", 7, &bw);
+  f_close(&fil);
+
+  int count = 0;
+  char* test[2048];
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	while (1) {
+  while (1)
+  {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		sprintf(test, "%d\n", A0);
-		fresult = f_open(&fil, "test7.txt",
-				FA_OPEN_APPEND | FA_READ | FA_WRITE);
-		fresult = f_write(&fil, test, strlen(test), &bw);
-		f_close(&fil);
-		count++;
-	}
-	HAL_TIM_Base_Stop_IT(&htim6);
+  }
   /* USER CODE END 3 */
 }
 
@@ -430,13 +407,9 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_4, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : PC4 */
   GPIO_InitStruct.Pin = GPIO_PIN_4;
@@ -445,34 +418,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LD3_Pin LD2_Pin */
-  GPIO_InitStruct.Pin = LD3_Pin|LD2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
-	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
-}
 
-// Called when buffer is completely filled
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
-	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-	//averaging code
-	uint32_t total_A0 = 0;
-	uint32_t total_A1 = 0;
-	for(i=0; i < ADC_BUF_LEN-1; i+=2)
-	 {
-		  total_A0 += adc_buf[i];
-		  total_A1 += adc_buf[i+1];
-	 }
-	raw_A0=total_A0/(ADC_BUF_LEN/2);
-	raw_A1=total_A1/(ADC_BUF_LEN/2);
-}
 /* USER CODE END 4 */
 
 /**
@@ -482,7 +431,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-	/* User can add his own implementation to report the HAL error return state */
+  /* User can add his own implementation to report the HAL error return state */
 
   /* USER CODE END Error_Handler_Debug */
 }

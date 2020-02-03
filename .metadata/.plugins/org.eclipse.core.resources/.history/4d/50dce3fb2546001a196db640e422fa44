@@ -35,7 +35,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define ADC_BUF_LEN 4096
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -179,7 +178,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		sprintf(test, "%d\n", A0);
+		sprintf(test, "%d\n", count);
 		fresult = f_open(&fil, "test7.txt",
 				FA_OPEN_APPEND | FA_READ | FA_WRITE);
 		fresult = f_write(&fil, test, strlen(test), &bw);
