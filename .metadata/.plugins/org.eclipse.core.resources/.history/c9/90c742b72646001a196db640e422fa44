@@ -179,8 +179,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		sprintf(test, "%d,%d\n", A0, A1);
-		fresult = f_open(&fil, "test8.txt",
+		sprintf(test, "%d\n", A0);
+		fresult = f_open(&fil, "test7.txt",
 				FA_OPEN_APPEND | FA_READ | FA_WRITE);
 		fresult = f_write(&fil, test, strlen(test), &bw);
 		f_close(&fil);
