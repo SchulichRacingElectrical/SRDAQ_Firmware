@@ -14,6 +14,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define ADC_BUF_LEN 4096
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -22,18 +23,24 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
 
 TIM_HandleTypeDef htim6;
 
 /* USER CODE BEGIN PV */
-uint32_t value;
-uint32_t value2;
+uint32_t filler = 0;
+uint32_t raw_A0;
+uint32_t raw_A1;
+uint32_t A0;
+uint32_t A1;
+uint16_t adc_buf[ADC_BUF_LEN];
 int i = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM6_Init(void);
 /* USER CODE BEGIN PFP */
@@ -42,13 +49,9 @@ static void MX_TIM6_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	HAL_ADC_Start(&hadc1);
-	HAL_ADC_PollForConversion(&hadc1, 5);
-	value = HAL_ADC_GetValue(&hadc1);
-	HAL_ADC_Start(&hadc1);
-	HAL_ADC_Stop(&hadc1);
+	A0=raw_A0;
+	A1=raw_A1;
 }
-
 //void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 //	//Use the ADC
 //	HAL_ADC_PollForConversion(&hadc1, 3);
@@ -85,10 +88,12 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ADC1_Init();
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 	HAL_TIM_Base_Start_IT(&htim6);
+	HAL_ADC_Start_DMA(&hadc1, (uint32_t*) adc_buf, ADC_BUF_LEN);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -98,10 +103,9 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-		HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
-//		value2=value;
-		HAL_Delay(500);
+//		HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+//		HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+//		HAL_Delay(500);
 	}
 	HAL_TIM_Base_Stop_IT(&htim6);
   /* USER CODE END 3 */
@@ -165,14 +169,14 @@ static void MX_ADC1_Init(void)
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
-  hadc1.Init.ScanConvMode = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.ScanConvMode = ENABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
-  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.NbrOfConversion = 2;
+  hadc1.Init.DMAContinuousRequests = ENABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
   {
@@ -183,6 +187,14 @@ static void MX_ADC1_Init(void)
   sConfig.Channel = ADC_CHANNEL_3;
   sConfig.Rank = 1;
   sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
+  */
+  sConfig.Channel = ADC_CHANNEL_10;
+  sConfig.Rank = 2;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -230,6 +242,22 @@ static void MX_TIM6_Init(void)
 
 }
 
+/** 
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void) 
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA2_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA2_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
+
+}
+
 /**
   * @brief GPIO Initialization Function
   * @param None
@@ -257,6 +285,26 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+// Called when first half of buffer is filled
+void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
+	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
+}
+
+// Called when buffer is completely filled
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
+	HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+	//averaging code
+	uint32_t total_A0 = 0;
+	uint32_t total_A1 = 0;
+	for(i=0; i < ADC_BUF_LEN-1; i+=2)
+	 {
+		  total_A0 += adc_buf[i];
+		  total_A1 += adc_buf[i+1];
+	 }
+	raw_A0=total_A0/(ADC_BUF_LEN/2);
+	raw_A1=total_A1/(ADC_BUF_LEN/2);
+}
+
 /* USER CODE END 4 */
 
 /**
