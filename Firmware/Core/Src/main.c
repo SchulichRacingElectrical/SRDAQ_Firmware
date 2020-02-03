@@ -150,7 +150,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  sprintf(test, "%d\n", count);
-	  fresult = f_open(&fil, "test6.txt", FA_OPEN_APPEND | FA_READ | FA_WRITE);
+	  fresult = f_open(&fil, "test7.txt", FA_OPEN_APPEND | FA_READ | FA_WRITE);
 	  fresult  = f_write(&fil, test, strlen(test), &bw);
 	  f_close(&fil);
 	  count ++;

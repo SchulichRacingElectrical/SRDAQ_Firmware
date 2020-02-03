@@ -2960,7 +2960,7 @@ int main(void)
  80018b2:	4925      	ldr	r1, [pc, #148]	; (8001948 <main+0x19c>)
  80018b4:	4618      	mov	r0, r3
  80018b6:	f005 fc01 	bl	80070bc <siprintf>
-	  fresult = f_open(&fil, "test6.txt", FA_OPEN_APPEND | FA_READ | FA_WRITE);
+	  fresult = f_open(&fil, "test7.txt", FA_OPEN_APPEND | FA_READ | FA_WRITE);
  80018ba:	2233      	movs	r2, #51	; 0x33
  80018bc:	4923      	ldr	r1, [pc, #140]	; (800194c <main+0x1a0>)
  80018be:	481f      	ldr	r0, [pc, #124]	; (800193c <main+0x190>)
