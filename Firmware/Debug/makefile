@@ -36,13 +36,16 @@ default.size.stdout \
 OBJDUMP_LIST += \
 Firmware.list \
 
+OBJCOPY_BIN += \
+Firmware.bin \
+
 
 # All Target
 all: Firmware.elf secondary-outputs
 
 # Tool invocations
-Firmware.elf: $(OBJS) $(USER_OBJS) C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\STM32F446ZETX_FLASH.ld
-	arm-none-eabi-gcc -o "Firmware.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Firmware.elf: $(OBJS) $(USER_OBJS) C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\STM32F446ZETX_FLASH.ld
+	arm-none-eabi-gcc -o "Firmware.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\will\Documents\Capstone\SRDAQ_Firmware\Firmware\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -56,12 +59,17 @@ Firmware.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+Firmware.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "Firmware.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 .PHONY: all clean dependents
 .SECONDARY:

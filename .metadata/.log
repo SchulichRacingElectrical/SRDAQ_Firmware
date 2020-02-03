@@ -608,3 +608,21 @@ org.eclipse.core.runtime.CoreException: Cannot determine URI for '/Firmware/Core
 
 !ENTRY org.eclipse.cdt.core 1 0 2020-02-02 17:45:05.035
 !MESSAGE Indexed 'Firmware' (20 sources, 26 headers) in 2.85 sec: 2,185 declarations; 15,574 references; 4 unresolved inclusions; 55 syntax errors; 2,395 unresolved names (12%)
+!SESSION 2020-02-02 18:18:32.951 -----------------------------------------------
+eclipse.buildId=Version 1.2.1
+java.version=1.8.0_202
+java.vendor=AdoptOpenJdk
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-02-02 18:18:37.831
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-02-02 18:18:47.484
+!MESSAGE Log4j initialized with config file C:\Users\will\Documents\Capstone\SRDAQ_Firmware\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-02-02 18:18:59.879
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-02-02 18:19:00.819
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
