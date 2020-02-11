@@ -164,7 +164,7 @@ int main(void)
 	bufclear();
 	free_space = (uint32_t) (fre_clust * pfs->csize * 0.5);
 
-	fresult = f_open(&fil, "file5.txt", FA_OPEN_ALWAYS | FA_READ | FA_WRITE);
+	fresult = f_open(&fil, "initialization.txt", FA_OPEN_ALWAYS | FA_READ | FA_WRITE);
 	fresult = f_write(&fil, "testing", 7, &bw);
 	f_close(&fil);
 
@@ -180,7 +180,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 		sprintf(test, "%d,%d\n", A0, A1);
-		fresult = f_open(&fil, "test8.txt",
+		fresult = f_open(&fil, "datalog.csv",
 				FA_OPEN_APPEND | FA_READ | FA_WRITE);
 		fresult = f_write(&fil, test, strlen(test), &bw);
 		f_close(&fil);
