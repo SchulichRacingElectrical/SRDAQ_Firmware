@@ -1464,3 +1464,728 @@
 2020-02-11 14:55:36,765 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
 2020-02-11 14:55:36,768 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :27:2: The content of elements must consist of well-formed character data or markup.
 2020-02-11 14:55:36,768 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2020-02-11 15:28:23,926 [INFO] Activator:176 - 
+
+
+2020-02-11 15:28:23,930 [INFO] Activator:177 - !SESSION log4j initialized
+2020-02-11 15:43:23,185 [INFO] ApplicationProperties:181 - Using Application install path: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541
+2020-02-11 15:43:23,222 [INFO] DbMcusXml:68 - Set database path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/mcu/
+2020-02-11 15:43:23,229 [INFO] DbBoardsPdsc:54 - Set plugin database path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/plugins/boardmanager/
+2020-02-11 15:43:23,230 [INFO] DbMcus:265 - Set plugin images path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/plugins/mcufinder/images/
+2020-02-11 15:43:23,230 [INFO] DbBoards:232 - Set plugin images path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/plugins/mcufinder/images/
+2020-02-11 15:43:23,234 [INFO] APIGFXSelector:72 - Set database path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/plugins/mcufinder/mcu/
+2020-02-11 15:43:23,249 [INFO] DbMcusAds:72 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,250 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,252 [INFO] DbMcusJson:59 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,254 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,255 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,513 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/cs/
+2020-02-11 15:43:23,626 [INFO] RulesReader:52 - Compatibility file has been processed (179 Rules)
+2020-02-11 15:43:23,740 [INFO] MicroXplorer:570 - Detected Java Version = 1.8.0_202
+2020-02-11 15:43:23,740 [INFO] DbMcusXml:68 - Set database path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/mcu/
+2020-02-11 15:43:23,740 [INFO] DbBoardsPdsc:54 - Set plugin database path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/plugins/boardmanager/
+2020-02-11 15:43:23,741 [INFO] DbMcus:265 - Set plugin images path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/plugins/mcufinder/images/
+2020-02-11 15:43:23,741 [INFO] DbBoards:232 - Set plugin images path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/plugins/mcufinder/images/
+2020-02-11 15:43:23,742 [INFO] APIGFXSelector:72 - Set database path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/plugins/mcufinder/mcu/
+2020-02-11 15:43:23,742 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,742 [INFO] DbMcusAds:72 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,743 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,743 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,743 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,743 [INFO] DbMcusJson:59 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,743 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,743 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,743 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,744 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,744 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,744 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,744 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/cs/
+2020-02-11 15:43:23,830 [INFO] MainPanel:185 - HeapMemory: 329252864
+2020-02-11 15:43:23,939 [INFO] DbMcusXml:68 - Set database path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/mcu/
+2020-02-11 15:43:23,940 [INFO] DbBoardsPdsc:54 - Set plugin database path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/plugins/boardmanager/
+2020-02-11 15:43:23,940 [INFO] DbBoards:232 - Set plugin images path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/plugins/mcufinder/images/
+2020-02-11 15:43:23,940 [INFO] APIGFXSelector:72 - Set database path to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/plugins/mcufinder/mcu/
+2020-02-11 15:43:23,941 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,941 [INFO] DbMcusAds:72 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,942 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,942 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,942 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,942 [INFO] DbMcusJson:59 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,942 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,942 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,943 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,943 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/
+2020-02-11 15:43:23,943 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,943 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\parki\.stmcufinder\plugins\mcufinder/ => C:\Users\parki\.stmcufinder\plugins\mcufinder
+2020-02-11 15:43:23,943 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\parki\.stmcufinder\plugins\mcufinder//mcu/cs/
+2020-02-11 15:43:23,964 [INFO] ApplicationProperties:181 - Using Application install path: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541
+2020-02-11 15:43:23,966 [INFO] PluginManage:178 - Search for loadable plugins [exclusion list=]
+2020-02-11 15:43:23,967 [INFO] PluginManage:292 - Check plugin analytics
+2020-02-11 15:43:23,990 [INFO] PluginManage:342 - Loaded plugin analytics (category:tool,tabindex:-1)
+2020-02-11 15:43:23,990 [INFO] PluginManage:292 - Check plugin clock
+2020-02-11 15:43:24,015 [INFO] PluginManage:342 - Loaded plugin clock (category:base,tabindex:2)
+2020-02-11 15:43:24,016 [INFO] PluginManage:292 - Check plugin ddr
+2020-02-11 15:43:24,019 [INFO] PluginManage:342 - Loaded plugin ddr (category:tool,tabindex:6)
+2020-02-11 15:43:24,020 [INFO] PluginManage:292 - Check plugin filemanager
+2020-02-11 15:43:24,151 [INFO] PluginManage:342 - Loaded plugin filemanager (category:base,tabindex:10)
+2020-02-11 15:43:24,152 [INFO] PluginManage:292 - Check plugin ipmanager
+2020-02-11 15:43:24,163 [INFO] PluginManage:342 - Loaded plugin ipmanager (category:base,tabindex:5)
+2020-02-11 15:43:24,163 [INFO] PluginManage:292 - Check plugin pinoutandconfiguration
+2020-02-11 15:43:24,178 [INFO] PluginManage:342 - Loaded plugin pinoutandconfiguration (category:base,tabindex:1)
+2020-02-11 15:43:24,179 [INFO] PluginManage:292 - Check plugin pinoutconfig
+2020-02-11 15:43:24,213 [INFO] PluginManage:342 - Loaded plugin pinoutconfig (category:base,tabindex:0)
+2020-02-11 15:43:24,214 [INFO] PluginManage:292 - Check plugin power
+2020-02-11 15:43:24,234 [INFO] PluginManage:342 - Loaded plugin power (category:power,tabindex:4)
+2020-02-11 15:43:24,235 [INFO] PluginManage:292 - Check plugin projectmanager
+2020-02-11 15:43:24,250 [INFO] PluginManage:342 - Loaded plugin projectmanager (category:projectmanager,tabindex:3)
+2020-02-11 15:43:24,250 [INFO] PluginManage:292 - Check plugin thirdparty
+2020-02-11 15:43:24,308 [INFO] ThirdPartyDb:294 - Open Third Party DataBase File (C:/Users/parki/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 19 ms. number of Sw pack : 8
+2020-02-11 15:43:24,341 [INFO] PluginManage:342 - Loaded plugin thirdparty (category:base,tabindex:-1)
+2020-02-11 15:43:24,342 [INFO] PluginManage:292 - Check plugin tools
+2020-02-11 15:43:24,371 [INFO] PluginManage:342 - Loaded plugin tools (category:base,tabindex:7)
+2020-02-11 15:43:24,372 [INFO] PluginManage:292 - Check plugin updater
+2020-02-11 15:43:24,385 [INFO] PluginManage:342 - Loaded plugin updater (category:base,tabindex:12)
+2020-02-11 15:43:24,386 [INFO] PluginManage:265 - PluginManage : Loaded plugins [12]
+2020-02-11 15:43:24,594 [INFO] PinOutPanel:1367 - setPackage(No Configuration,No Configuration)
+2020-02-11 15:43:24,704 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:24,704 [INFO] PluginManager:200 - loadIPPluginJar : add adc
+2020-02-11 15:43:24,748 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:24,749 [INFO] PluginManager:200 - loadIPPluginJar : add aes
+2020-02-11 15:43:24,808 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:24,808 [INFO] PluginManager:200 - loadIPPluginJar : add can
+2020-02-11 15:43:24,828 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:24,830 [INFO] PluginManager:200 - loadIPPluginJar : add comp
+2020-02-11 15:43:24,869 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:24,869 [INFO] PluginManager:200 - loadIPPluginJar : add cryp
+2020-02-11 15:43:24,907 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:24,907 [INFO] PluginManager:200 - loadIPPluginJar : add dfsdm
+2020-02-11 15:43:24,921 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:24,921 [INFO] PluginManager:200 - loadIPPluginJar : add dma
+2020-02-11 15:43:24,939 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:24,939 [INFO] PluginManager:200 - loadIPPluginJar : add fatfs
+2020-02-11 15:43:24,988 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:24,989 [INFO] PluginManager:200 - loadIPPluginJar : add fmc
+2020-02-11 15:43:25,004 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,005 [INFO] PluginManager:200 - loadIPPluginJar : add freertos
+2020-02-11 15:43:25,022 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,022 [INFO] PluginManager:200 - loadIPPluginJar : add genericplugin
+2020-02-11 15:43:25,107 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,108 [INFO] PluginManager:200 - loadIPPluginJar : add gfxmmu
+2020-02-11 15:43:25,119 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,119 [INFO] PluginManager:200 - loadIPPluginJar : add gfxsimulator
+2020-02-11 15:43:25,232 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,233 [INFO] PluginManager:200 - loadIPPluginJar : add gic
+2020-02-11 15:43:25,246 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,246 [INFO] PluginManager:200 - loadIPPluginJar : add gpio
+2020-02-11 15:43:25,306 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,307 [INFO] PluginManager:200 - loadIPPluginJar : add gtzc
+2020-02-11 15:43:25,346 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,347 [INFO] PluginManager:200 - loadIPPluginJar : add hash
+2020-02-11 15:43:25,393 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,394 [INFO] PluginManager:200 - loadIPPluginJar : add i2c
+2020-02-11 15:43:25,434 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,435 [INFO] PluginManager:200 - loadIPPluginJar : add i2s
+2020-02-11 15:43:25,555 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,556 [INFO] PluginManager:200 - loadIPPluginJar : add ipddr
+2020-02-11 15:43:25,589 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,590 [INFO] PluginManager:200 - loadIPPluginJar : add ltdc
+2020-02-11 15:43:25,601 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,602 [INFO] PluginManager:200 - loadIPPluginJar : add mdma
+2020-02-11 15:43:25,611 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,612 [INFO] PluginManager:200 - loadIPPluginJar : add nvic
+2020-02-11 15:43:25,655 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,655 [INFO] PluginManager:200 - loadIPPluginJar : add opamp
+2020-02-11 15:43:25,718 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,718 [INFO] PluginManager:200 - loadIPPluginJar : add pdm2pcm
+2020-02-11 15:43:25,734 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,737 [INFO] PluginManager:200 - loadIPPluginJar : add plateformsettings
+2020-02-11 15:43:25,755 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,755 [INFO] PluginManager:200 - loadIPPluginJar : add quadspi
+2020-02-11 15:43:25,766 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,767 [INFO] PluginManager:200 - loadIPPluginJar : add resmgrutility
+2020-02-11 15:43:25,817 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,817 [INFO] PluginManager:200 - loadIPPluginJar : add sai
+2020-02-11 15:43:25,854 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,855 [INFO] PluginManager:200 - loadIPPluginJar : add spi
+2020-02-11 15:43:25,900 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,900 [INFO] PluginManager:200 - loadIPPluginJar : add stm32_wpan
+2020-02-11 15:43:25,920 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,920 [INFO] PluginManager:200 - loadIPPluginJar : add tim
+2020-02-11 15:43:25,979 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,979 [INFO] PluginManager:200 - loadIPPluginJar : add touchsensing
+2020-02-11 15:43:25,999 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:25,999 [INFO] PluginManager:200 - loadIPPluginJar : add tracer_emb
+2020-02-11 15:43:26,018 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:26,019 [INFO] PluginManager:200 - loadIPPluginJar : add ts
+2020-02-11 15:43:26,041 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:26,041 [INFO] PluginManager:200 - loadIPPluginJar : add tsc
+2020-02-11 15:43:26,058 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:26,059 [INFO] PluginManager:200 - loadIPPluginJar : add ucpd
+2020-02-11 15:43:26,102 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:26,102 [INFO] PluginManager:200 - loadIPPluginJar : add usart
+2020-02-11 15:43:26,497 [INFO] BoardConnectionPanel:220 - [DDR PANEL] osNameString: Windows
+2020-02-11 15:43:26,644 [INFO] BoardConnectionPanel:3149 - [DDR PANEL] STM32CubeIDE environment
+2020-02-11 15:43:26,645 [INFO] MainDdrPanel:100 - [DDR PANEL] GETTER - cubeProgrammerPath is: null
+2020-02-11 15:43:26,847 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-02-11 15:43:27,103 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-02-11 15:43:27,110 [INFO] PinOutPanel:1367 - setPackage(No Configuration,No Configuration)
+2020-02-11 15:43:27,112 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-02-11 15:43:27,117 [INFO] BoardConnectionPanel:3149 - [DDR PANEL] STM32CubeIDE environment
+2020-02-11 15:43:27,118 [INFO] MainDdrPanel:100 - [DDR PANEL] GETTER - cubeProgrammerPath is: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin
+2020-02-11 15:43:27,126 [INFO] ProgrammerExecThread:148 - [ProgrammerAPI] CubeProgrammer command construction: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin\STM32_Programmer_CLI.exe -l
+2020-02-11 15:43:27,227 [INFO] MainDdrPanel:90 - [DDR PANEL] SETTER - Set cubeProgrammerPath to: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin
+2020-02-11 15:43:27,258 [INFO] Updater:886 - Updater Version found : 5.4.0
+2020-02-11 15:43:27,282 [INFO] ApplicationProperties:181 - Using Application install path: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541
+2020-02-11 15:43:27,320 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-02-11 15:43:27,320 [ERROR] IntegrityCheckThread:230 - Cannot obtain thirdParties list 21
+2020-02-11 15:43:27,320 [ERROR] IntegrityCheckThread:99 - Unexpected exception IntegrityCheckThread Thread: Updater error
+2020-02-11 15:43:27,321 [INFO] ThirdPartyDb:264 - Close Third Party DataBase File (C:/Users/parki/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
+2020-02-11 15:43:27,835 [INFO] MainUpdater:2232 - connection check result : 10
+2020-02-11 15:43:27,837 [INFO] MainUpdater:236 - Updater Check For Update Now.
+2020-02-11 15:43:27,837 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.40
+2020-02-11 15:43:27,925 [INFO] CheckServerUpdateThread:92 - End of CheckServer Thread
+2020-02-11 15:43:28,055 [INFO] MainUpdater:2232 - connection check result : 10
+2020-02-11 15:43:28,056 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Successfull proxy connection.
+2020-02-11 15:43:28,217 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-02-11 15:43:28,218 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.40
+2020-02-11 15:43:28,222 [INFO] PinOutPanel:1367 - setPackage(No Configuration,No Configuration)
+2020-02-11 15:43:28,222 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 233111712 Bytes (329252864)
+2020-02-11 15:43:28,223 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-02-11 15:43:28,223 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.40
+2020-02-11 15:43:28,223 [INFO] OpenFileManager:269 - Change cursor
+2020-02-11 15:43:31,866 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (ADC1) : Parameter (Rank) has Id (0#ChannelRegularConversion) currently not set
+2020-02-11 15:43:31,866 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (ADC1) : Parameter (Channel) has Id (0#ChannelRegularConversion) currently not set
+2020-02-11 15:43:31,867 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (ADC1) : Parameter (SamplingTime) has Id (0#ChannelRegularConversion) currently not set
+2020-02-11 15:43:31,868 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (ADC1) : Parameter (Rank) has Id (1#ChannelRegularConversion) currently not set
+2020-02-11 15:43:31,868 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (ADC1) : Parameter (Channel) has Id (1#ChannelRegularConversion) currently not set
+2020-02-11 15:43:31,869 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (ADC1) : Parameter (SamplingTime) has Id (1#ChannelRegularConversion) currently not set
+2020-02-11 15:43:31,869 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Instance) has Id (ADC1) currently not set
+2020-02-11 15:43:31,869 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Channel) has Id (ADC1) currently not set
+2020-02-11 15:43:31,869 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Direction) has Id (ADC1) currently not set
+2020-02-11 15:43:31,869 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphInc) has Id (ADC1) currently not set
+2020-02-11 15:43:31,869 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemInc) has Id (ADC1) currently not set
+2020-02-11 15:43:31,870 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (PeriphDataAlignment) has Id (ADC1) currently not set
+2020-02-11 15:43:31,870 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (MemDataAlignment) has Id (ADC1) currently not set
+2020-02-11 15:43:31,870 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Mode) has Id (ADC1) currently not set
+2020-02-11 15:43:31,870 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (Priority) has Id (ADC1) currently not set
+2020-02-11 15:43:31,870 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (DMA) : Parameter (FIFOMode) has Id (ADC1) currently not set
+2020-02-11 15:43:31,876 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Invalid parameter (FamilyName)
+2020-02-11 15:43:31,877 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (SDIOFreq_Value) has invalid value (72000000)
+2020-02-11 15:43:31,877 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) IP (RCC) : Parameter (USBFreq_Value) has invalid value (72000000)
+2020-02-11 15:43:32,340 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 497084224 Bytes (597688320)
+2020-02-11 15:43:32,349 [INFO] ThirdPartyDb:294 - Open Third Party DataBase File (C:/Users/parki/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 3 ms. number of Sw pack : 8
+2020-02-11 15:43:32,527 [INFO] ThirdParty:897 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-02-11 15:43:32,527 [INFO] ThirdParty:897 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 4.4.0
+2020-02-11 15:43:32,527 [INFO] ThirdParty:897 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-02-11 15:43:32,528 [INFO] ThirdParty:897 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.0.0
+2020-02-11 15:43:32,528 [INFO] ThirdParty:897 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.1
+2020-02-11 15:43:32,528 [INFO] ThirdParty:897 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.0.0
+2020-02-11 15:43:32,528 [INFO] ThirdParty:897 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-02-11 15:43:32,528 [INFO] ThirdParty:897 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-02-11 15:43:34,369 [INFO] PinOutPanel:1367 - setPackage(No Configuration,No Configuration)
+2020-02-11 15:43:34,375 [INFO] PinOutPanel:1367 - setPackage(STM32F446ZETx,LQFP144)
+2020-02-11 15:43:35,827 [INFO] UtilMem:74 - Before build in PCC Used Memory: 317194912 Bytes (597688320)
+2020-02-11 15:43:36,386 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/parki/.stm32cubemx/plugins/power
+2020-02-11 15:43:36,399 [INFO] UtilMem:74 - After build in PCC Used Memory: 332923552 Bytes (597688320)
+2020-02-11 15:43:36,407 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:43:36,408 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,408 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,408 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,408 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,408 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,409 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,409 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,409 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,409 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,409 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,409 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,409 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,410 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,410 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,411 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,411 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,411 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,411 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,411 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,411 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,411 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,412 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,412 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,412 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,412 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,412 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,413 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,413 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,413 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,413 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,413 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,413 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,414 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,414 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,414 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,414 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,414 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,415 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,415 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,415 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,415 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,415 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,415 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,415 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,416 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,416 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,416 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,416 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,416 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,416 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,416 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,417 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,417 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,417 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,417 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,417 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,418 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,418 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,418 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,419 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,420 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,420 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,420 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,420 [INFO] IPUIPlugin:63 - create IPUIPlugin
+2020-02-11 15:43:36,475 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:43:36,509 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] toolchainItems.length=====1
+2020-02-11 15:43:36,692 [INFO] OpenFileManager:289 - Restore cursor
+2020-02-11 15:43:36,707 [INFO] DbMcusXml:106 - Load MCU database from C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/mcu/families.xml
+2020-02-11 15:43:36,707 [INFO] DbMcusXml:106 - Load MCU database from C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\/mcu/families.xml
+2020-02-11 15:43:37,807 [INFO] DbMcusJson:87 - JSON generation date=Wed Jan 22 06:50:05 MST 2020 (1579701005)
+2020-02-11 15:43:37,813 [INFO] DbMcusJson:87 - JSON generation date=Wed Jan 22 06:50:05 MST 2020 (1579701005)
+2020-02-11 15:43:39,119 [INFO] DbMcus:193 - Found 1544 MCUs (1504 are supported by CubeMX, 1504 are visible in CubeMX)
+2020-02-11 15:43:39,120 [INFO] DbMcus:193 - Found 1544 MCUs (1504 are supported by CubeMX, 1504 are visible in CubeMX)
+2020-02-11 15:43:39,120 [INFO] ApiDb:158 - Load user favorites file C:\Users\parki/.stm32cubemx/favorites.mcus.txt: 0 item(s)
+2020-02-11 15:43:39,120 [INFO] ApiDb:158 - Load user favorites file C:\Users\parki/.stm32cubemx/favorites.mcus.txt: 0 item(s)
+2020-02-11 15:43:39,120 [INFO] ApiDb:163 - User favorites MCUs=[]
+2020-02-11 15:43:39,120 [INFO] ApiDb:163 - User favorites MCUs=[]
+2020-02-11 15:43:39,121 [INFO] DbMcus:204 - Set 0 / 0 favorites MCUs
+2020-02-11 15:43:39,120 [INFO] DbMcus:204 - Set 0 / 0 favorites MCUs
+2020-02-11 15:43:39,348 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:43:39,435 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:43:57,816 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:43:59,648 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:43:59,728 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:00,658 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:00,724 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:00,761 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:16,236 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:16,290 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:16,317 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:17,221 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:17,277 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:17,315 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:18,338 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:18,372 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:18,398 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:19,363 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:19,412 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:19,444 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:20,390 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:20,431 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:20,453 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:21,691 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:21,741 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:21,770 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:22,762 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:22,770 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:24,456 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:24,475 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:26,428 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:26,473 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:26,504 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:44:26,575 [INFO] DbMcusDocs:126 - JSON generation date=Wed Jan 22 06:50:05 MST 2020 (1579701005)
+2020-02-11 15:44:26,662 [INFO] DbMcusDocs:61 - Found 541 MCUs documents
+2020-02-11 15:44:58,809 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Tab changed to: Clock Configuration
+2020-02-11 15:45:07,038 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:45:32,558 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:45:34,392 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:45:40,884 [INFO] ParamManager:955 - [Generic UI] PropertyChangeEvent: TAB_STATUS_CHANGED , "dont care", "never mind"
+2020-02-11 15:45:40,927 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:45:43,221 [INFO] ParamManager:955 - [Generic UI] PropertyChangeEvent: TAB_STATUS_CHANGED , "dont care", "never mind"
+2020-02-11 15:45:43,266 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:45:51,263 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:46:13,951 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:46:37,210 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 840567536 Bytes (1070596096)
+2020-02-11 15:46:39,831 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 849418120 Bytes (1070596096)
+2020-02-11 15:46:40,013 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 860952456 Bytes (1070596096)
+2020-02-11 15:46:40,429 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: SPI
+2020-02-11 15:46:40,430 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: TIM6_7
+2020-02-11 15:46:40,430 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: SYS
+2020-02-11 15:46:40,430 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: ADC
+2020-02-11 15:46:40,430 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: RCC
+2020-02-11 15:46:40,430 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: RTC
+2020-02-11 15:46:40,430 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: NVIC
+2020-02-11 15:46:40,430 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: USART
+2020-02-11 15:46:40,431 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: DMA
+2020-02-11 15:46:40,431 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: GPIO
+2020-02-11 15:46:40,431 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: FATFS
+2020-02-11 15:46:40,433 [INFO] CodeGenerator:598 - code generatio: config db path: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\
+2020-02-11 15:46:41,246 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\license.tmp_save
+2020-02-11 15:46:41,714 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\license.tmp
+2020-02-11 15:46:41,861 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\gpio.tmp_save
+2020-02-11 15:46:42,052 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\gpio.tmp
+2020-02-11 15:46:42,512 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:46:42,514 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for ADC
+2020-02-11 15:46:42,515 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:46:42,518 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:46:42,519 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-02-11 15:46:42,520 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:46:42,580 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\dma.tmp_save
+2020-02-11 15:46:42,681 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\dma.tmp
+2020-02-11 15:46:42,715 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\dma_GV.tmp_save
+2020-02-11 15:46:42,781 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\dma_GV.tmp
+2020-02-11 15:46:42,783 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:46:42,796 [INFO] ApiDbMcu:445 - Load IP Config File for FATFS
+2020-02-11 15:46:42,841 [INFO] Middleware:1071 - No code input for Bsp Dependency
+2020-02-11 15:46:42,877 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_HalInit.tmp_save
+2020-02-11 15:46:42,961 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_HalInit.tmp
+2020-02-11 15:46:43,002 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_vars.tmp_save
+2020-02-11 15:46:43,096 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_vars.tmp
+2020-02-11 15:46:43,134 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_ext_vars.tmp_save
+2020-02-11 15:46:43,216 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_ext_vars.tmp
+2020-02-11 15:46:43,250 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_inc.tmp_save
+2020-02-11 15:46:43,315 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_inc.tmp
+2020-02-11 15:46:43,374 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\ffconf.h_save
+2020-02-11 15:46:43,550 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\ffconf.h
+2020-02-11 15:46:43,594 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.c_save
+2020-02-11 15:46:43,705 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.c
+2020-02-11 15:46:43,747 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.h_save
+2020-02-11 15:46:43,820 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.h
+2020-02-11 15:46:43,861 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.c_save
+2020-02-11 15:46:43,996 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.c
+2020-02-11 15:46:44,046 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.h_save
+2020-02-11 15:46:44,166 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.h
+2020-02-11 15:46:44,169 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:46:44,170 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for RTC
+2020-02-11 15:46:44,171 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:46:44,174 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:46:44,176 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-02-11 15:46:44,177 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:46:44,179 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:46:44,180 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SYS
+2020-02-11 15:46:44,182 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:46:44,184 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:46:44,186 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-02-11 15:46:44,187 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:46:44,189 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:46:44,190 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-02-11 15:46:44,191 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:46:44,193 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-02-11 15:46:44,193 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:46:44,242 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_it.c_save
+2020-02-11 15:46:44,393 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_it.c
+2020-02-11 15:46:44,425 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_it.h_save
+2020-02-11 15:46:44,518 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_it.h
+2020-02-11 15:46:44,577 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_hal_msp.c_save
+2020-02-11 15:46:44,833 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_hal_msp.c
+2020-02-11 15:46:44,871 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\system.tmp_save
+2020-02-11 15:46:44,969 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\system.tmp
+2020-02-11 15:46:45,025 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_hal_conf.h_save
+2020-02-11 15:46:45,145 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_hal_conf.h
+2020-02-11 15:46:45,181 [WARN] IPConfigManager:2673 - IP not found : TIM
+2020-02-11 15:46:45,181 [WARN] IPConfigManager:2673 - IP not found : gpio
+2020-02-11 15:46:45,184 [WARN] CodeGenerator:2697 - IP not found : TIM
+2020-02-11 15:46:45,184 [WARN] CodeGenerator:2697 - IP not found : gpio
+2020-02-11 15:46:45,259 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\main.h_save
+2020-02-11 15:46:45,379 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\main.h
+2020-02-11 15:46:45,428 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\main.c_save
+2020-02-11 15:46:45,668 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\main.c
+2020-02-11 15:46:47,065 [INFO] ProjectBuilder:1645 - Time for Copy HAL[1] : 893mS.
+2020-02-11 15:46:47,075 [INFO] ProjectBuilder:2206 - Project Generator version: 3.5.2
+2020-02-11 15:46:47,317 [INFO] ConfigFileManager:953 - The Die is : DIE421
+2020-02-11 15:46:51,210 [INFO] ProjectBuilder:2373 - Time for Generating toolchain IDE Files: 4135mS.
+2020-02-11 15:46:51,211 [INFO] ProjectBuilder:1505 - Time for Copy CMSIS : 0mS.
+2020-02-11 15:46:51,218 [INFO] ProjectBuilder:1505 - Time for Copy CMSIS : 0mS.
+2020-02-11 15:47:33,343 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Tab changed to: Pinout & Configuration
+2020-02-11 15:47:36,395 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:47:37,188 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:47:38,651 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:47:41,803 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:47:41,851 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:47:45,565 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Tab changed to: Clock Configuration
+2020-02-11 15:47:47,212 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:49:12,708 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Tab changed to: Pinout & Configuration
+2020-02-11 15:49:14,859 [INFO] BlockDiagram:1827 - stop enableDisableButtons
+2020-02-11 15:50:54,750 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 631600560 Bytes (1073741824)
+2020-02-11 15:50:56,157 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 640515496 Bytes (1073741824)
+2020-02-11 15:50:56,326 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 705527208 Bytes (1073741824)
+2020-02-11 15:50:56,475 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: SPI
+2020-02-11 15:50:56,476 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: TIM6_7
+2020-02-11 15:50:56,476 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: SYS
+2020-02-11 15:50:56,476 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: ADC
+2020-02-11 15:50:56,476 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: RCC
+2020-02-11 15:50:56,476 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: RTC
+2020-02-11 15:50:56,476 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: NVIC
+2020-02-11 15:50:56,476 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: USART
+2020-02-11 15:50:56,476 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: DMA
+2020-02-11 15:50:56,476 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: GPIO
+2020-02-11 15:50:56,476 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: FATFS
+2020-02-11 15:50:56,477 [INFO] CodeGenerator:598 - code generatio: config db path: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\
+2020-02-11 15:50:56,490 [INFO] Argument:277 - Argument : hdmavalue: null
+2020-02-11 15:50:56,490 [INFO] Argument:279 - 	 sub Args: 
+2020-02-11 15:50:56,490 [INFO] Argument:277 - Argument : Instancevalue: DMA2_Stream0
+2020-02-11 15:50:56,490 [INFO] Argument:287 - Argument : Instancevalue: DMA2_Stream0
+2020-02-11 15:50:56,490 [INFO] Argument:277 - Argument : Initvalue: null
+2020-02-11 15:50:56,490 [INFO] Argument:279 - 	 sub Args: 
+2020-02-11 15:50:56,490 [INFO] Argument:277 - Argument : Channelvalue: DMA_CHANNEL_0
+2020-02-11 15:50:56,490 [INFO] Argument:287 - Argument : Channelvalue: DMA_CHANNEL_0
+2020-02-11 15:50:56,490 [INFO] Argument:277 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-02-11 15:50:56,490 [INFO] Argument:287 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-02-11 15:50:56,490 [INFO] Argument:277 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-02-11 15:50:56,490 [INFO] Argument:287 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-02-11 15:50:56,490 [INFO] Argument:277 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-02-11 15:50:56,491 [INFO] Argument:287 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-02-11 15:50:56,491 [INFO] Argument:277 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2020-02-11 15:50:56,491 [INFO] Argument:287 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2020-02-11 15:50:56,491 [INFO] Argument:277 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2020-02-11 15:50:56,491 [INFO] Argument:287 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2020-02-11 15:50:56,491 [INFO] Argument:277 - Argument : Modevalue: DMA_CIRCULAR
+2020-02-11 15:50:56,491 [INFO] Argument:287 - Argument : Modevalue: DMA_CIRCULAR
+2020-02-11 15:50:56,491 [INFO] Argument:277 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-02-11 15:50:56,491 [INFO] Argument:287 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-02-11 15:50:56,491 [INFO] Argument:277 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-02-11 15:50:56,491 [INFO] Argument:287 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-02-11 15:50:56,491 [INFO] Argument:277 - Argument : FIFOThresholdvalue: null
+2020-02-11 15:50:56,491 [INFO] Argument:287 - Argument : FIFOThresholdvalue: null
+2020-02-11 15:50:56,491 [INFO] Argument:277 - Argument : MemBurstvalue: null
+2020-02-11 15:50:56,491 [INFO] Argument:287 - Argument : MemBurstvalue: null
+2020-02-11 15:50:56,491 [INFO] Argument:277 - Argument : PeriphBurstvalue: null
+2020-02-11 15:50:56,491 [INFO] Argument:287 - Argument : PeriphBurstvalue: null
+2020-02-11 15:50:56,491 [INFO] Argument:277 - Argument : Lockvalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:287 - Argument : Lockvalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:277 - Argument : Statevalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:287 - Argument : Statevalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:277 - Argument : Parentvalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:287 - Argument : Parentvalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:277 - Argument : XferCpltCallbackvalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:287 - Argument : XferCpltCallbackvalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:277 - Argument : XferHalfCpltCallbackvalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:287 - Argument : XferHalfCpltCallbackvalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:277 - Argument : XferM1CpltCallbackvalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:287 - Argument : XferM1CpltCallbackvalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:277 - Argument : XferErrorCallbackvalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:287 - Argument : XferErrorCallbackvalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:277 - Argument : ErrorCodevalue: null
+2020-02-11 15:50:56,492 [INFO] Argument:287 - Argument : ErrorCodevalue: null
+2020-02-11 15:50:56,798 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\license.tmp_save
+2020-02-11 15:50:56,881 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\license.tmp
+2020-02-11 15:50:56,940 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\gpio.tmp_save
+2020-02-11 15:50:57,021 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\gpio.tmp
+2020-02-11 15:50:57,261 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:50:57,262 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for ADC
+2020-02-11 15:50:57,262 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:50:57,264 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:50:57,264 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-02-11 15:50:57,265 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:50:57,298 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\dma.tmp_save
+2020-02-11 15:50:57,391 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\dma.tmp
+2020-02-11 15:50:57,428 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\dma_GV.tmp_save
+2020-02-11 15:50:57,499 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\dma_GV.tmp
+2020-02-11 15:50:57,501 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:50:57,508 [INFO] Middleware:1071 - No code input for Bsp Dependency
+2020-02-11 15:50:57,527 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_HalInit.tmp_save
+2020-02-11 15:50:57,579 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_HalInit.tmp
+2020-02-11 15:50:57,601 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_vars.tmp_save
+2020-02-11 15:50:57,653 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_vars.tmp
+2020-02-11 15:50:57,675 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_ext_vars.tmp_save
+2020-02-11 15:50:57,725 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_ext_vars.tmp
+2020-02-11 15:50:57,763 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_inc.tmp_save
+2020-02-11 15:50:57,834 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_inc.tmp
+2020-02-11 15:50:57,876 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\ffconf.h_save
+2020-02-11 15:50:57,985 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\ffconf.h
+2020-02-11 15:50:58,025 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.c_save
+2020-02-11 15:50:58,119 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.c
+2020-02-11 15:50:58,156 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.h_save
+2020-02-11 15:50:58,244 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.h
+2020-02-11 15:50:58,281 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.c_save
+2020-02-11 15:50:58,364 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.c
+2020-02-11 15:50:58,387 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.h_save
+2020-02-11 15:50:58,446 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.h
+2020-02-11 15:50:58,448 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:50:58,448 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for RTC
+2020-02-11 15:50:58,449 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:50:58,450 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:50:58,451 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-02-11 15:50:58,452 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:50:58,453 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:50:58,453 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SYS
+2020-02-11 15:50:58,454 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:50:58,455 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:50:58,456 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-02-11 15:50:58,456 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:50:58,457 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 15:50:58,458 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-02-11 15:50:58,459 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:50:58,460 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-02-11 15:50:58,461 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 15:50:58,497 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_it.c_save
+2020-02-11 15:50:58,578 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_it.c
+2020-02-11 15:50:58,599 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_it.h_save
+2020-02-11 15:50:58,661 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_it.h
+2020-02-11 15:50:58,704 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_hal_msp.c_save
+2020-02-11 15:50:58,853 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_hal_msp.c
+2020-02-11 15:50:58,882 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\system.tmp_save
+2020-02-11 15:50:58,928 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\system.tmp
+2020-02-11 15:50:58,965 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_hal_conf.h_save
+2020-02-11 15:50:59,066 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_hal_conf.h
+2020-02-11 15:50:59,084 [WARN] IPConfigManager:2673 - IP not found : TIM
+2020-02-11 15:50:59,084 [WARN] IPConfigManager:2673 - IP not found : gpio
+2020-02-11 15:50:59,085 [WARN] CodeGenerator:2697 - IP not found : TIM
+2020-02-11 15:50:59,085 [WARN] CodeGenerator:2697 - IP not found : gpio
+2020-02-11 15:50:59,122 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\main.h_save
+2020-02-11 15:50:59,187 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\main.h
+2020-02-11 15:50:59,225 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\main.c_save
+2020-02-11 15:50:59,395 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\main.c
+2020-02-11 15:51:00,474 [INFO] ProjectBuilder:1645 - Time for Copy HAL[1] : 622mS.
+2020-02-11 15:51:00,476 [INFO] ProjectBuilder:2206 - Project Generator version: 3.5.2
+2020-02-11 15:51:00,671 [INFO] ConfigFileManager:953 - The Die is : DIE421
+2020-02-11 15:51:02,735 [INFO] ProjectBuilder:2373 - Time for Generating toolchain IDE Files: 2259mS.
+2020-02-11 15:51:02,736 [INFO] ProjectBuilder:1505 - Time for Copy CMSIS : 1mS.
+2020-02-11 15:51:02,742 [INFO] ProjectBuilder:1505 - Time for Copy CMSIS : 0mS.
+2020-02-11 16:50:04,905 [INFO] ParamManager:955 - [Generic UI] PropertyChangeEvent: TAB_STATUS_CHANGED , "dont care", "never mind"
+2020-02-11 16:50:09,057 [INFO] ParamManager:955 - [Generic UI] PropertyChangeEvent: TAB_STATUS_CHANGED , "dont care", "never mind"
+2020-02-11 16:50:43,296 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 491306768 Bytes (1073741824)
+2020-02-11 16:50:44,479 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 500217624 Bytes (1073741824)
+2020-02-11 16:50:44,630 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 511751960 Bytes (1073741824)
+2020-02-11 16:50:44,802 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: SPI
+2020-02-11 16:50:44,802 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: TIM6_7
+2020-02-11 16:50:44,802 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: SYS
+2020-02-11 16:50:44,802 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: ADC
+2020-02-11 16:50:44,802 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: RCC
+2020-02-11 16:50:44,802 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: RTC
+2020-02-11 16:50:44,802 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: NVIC
+2020-02-11 16:50:44,802 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: USART
+2020-02-11 16:50:44,802 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: DMA
+2020-02-11 16:50:44,802 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: GPIO
+2020-02-11 16:50:44,802 [INFO] BlockDiagram:1871 - set Specific Code input for plugin: FATFS
+2020-02-11 16:50:44,804 [INFO] CodeGenerator:598 - code generatio: config db path: C:\ST\STM32CubeIDE_1.1.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.4.0.201910091541\\db\
+2020-02-11 16:50:44,822 [INFO] Argument:277 - Argument : hdmavalue: null
+2020-02-11 16:50:44,823 [INFO] Argument:279 - 	 sub Args: 
+2020-02-11 16:50:44,823 [INFO] Argument:277 - Argument : Instancevalue: DMA2_Stream0
+2020-02-11 16:50:44,823 [INFO] Argument:287 - Argument : Instancevalue: DMA2_Stream0
+2020-02-11 16:50:44,823 [INFO] Argument:277 - Argument : Initvalue: null
+2020-02-11 16:50:44,823 [INFO] Argument:279 - 	 sub Args: 
+2020-02-11 16:50:44,823 [INFO] Argument:277 - Argument : Channelvalue: DMA_CHANNEL_0
+2020-02-11 16:50:44,823 [INFO] Argument:287 - Argument : Channelvalue: DMA_CHANNEL_0
+2020-02-11 16:50:44,823 [INFO] Argument:277 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-02-11 16:50:44,823 [INFO] Argument:287 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-02-11 16:50:44,823 [INFO] Argument:277 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-02-11 16:50:44,823 [INFO] Argument:287 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-02-11 16:50:44,823 [INFO] Argument:277 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-02-11 16:50:44,823 [INFO] Argument:287 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-02-11 16:50:44,823 [INFO] Argument:277 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2020-02-11 16:50:44,824 [INFO] Argument:287 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2020-02-11 16:50:44,824 [INFO] Argument:277 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2020-02-11 16:50:44,824 [INFO] Argument:287 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2020-02-11 16:50:44,824 [INFO] Argument:277 - Argument : Modevalue: DMA_CIRCULAR
+2020-02-11 16:50:44,824 [INFO] Argument:287 - Argument : Modevalue: DMA_CIRCULAR
+2020-02-11 16:50:44,825 [INFO] Argument:277 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-02-11 16:50:44,825 [INFO] Argument:287 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-02-11 16:50:44,825 [INFO] Argument:277 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-02-11 16:50:44,825 [INFO] Argument:287 - Argument : FIFOModevalue: DMA_FIFOMODE_DISABLE
+2020-02-11 16:50:44,825 [INFO] Argument:277 - Argument : FIFOThresholdvalue: null
+2020-02-11 16:50:44,825 [INFO] Argument:287 - Argument : FIFOThresholdvalue: null
+2020-02-11 16:50:44,825 [INFO] Argument:277 - Argument : MemBurstvalue: null
+2020-02-11 16:50:44,825 [INFO] Argument:287 - Argument : MemBurstvalue: null
+2020-02-11 16:50:44,825 [INFO] Argument:277 - Argument : PeriphBurstvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:287 - Argument : PeriphBurstvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:277 - Argument : Lockvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:287 - Argument : Lockvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:277 - Argument : Statevalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:287 - Argument : Statevalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:277 - Argument : Parentvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:287 - Argument : Parentvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:277 - Argument : XferCpltCallbackvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:287 - Argument : XferCpltCallbackvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:277 - Argument : XferHalfCpltCallbackvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:287 - Argument : XferHalfCpltCallbackvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:277 - Argument : XferM1CpltCallbackvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:287 - Argument : XferM1CpltCallbackvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:277 - Argument : XferErrorCallbackvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:287 - Argument : XferErrorCallbackvalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:277 - Argument : ErrorCodevalue: null
+2020-02-11 16:50:44,826 [INFO] Argument:287 - Argument : ErrorCodevalue: null
+2020-02-11 16:50:45,117 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\license.tmp_save
+2020-02-11 16:50:45,172 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\license.tmp
+2020-02-11 16:50:45,234 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\gpio.tmp_save
+2020-02-11 16:50:45,314 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\gpio.tmp
+2020-02-11 16:50:45,588 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 16:50:45,589 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for ADC
+2020-02-11 16:50:45,590 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 16:50:45,592 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 16:50:45,593 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-02-11 16:50:45,594 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 16:50:45,629 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\dma.tmp_save
+2020-02-11 16:50:45,685 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\dma.tmp
+2020-02-11 16:50:45,715 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\dma_GV.tmp_save
+2020-02-11 16:50:45,785 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\dma_GV.tmp
+2020-02-11 16:50:45,787 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 16:50:45,794 [INFO] Middleware:1071 - No code input for Bsp Dependency
+2020-02-11 16:50:45,823 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_HalInit.tmp_save
+2020-02-11 16:50:45,895 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_HalInit.tmp
+2020-02-11 16:50:45,925 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_vars.tmp_save
+2020-02-11 16:50:46,000 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_vars.tmp
+2020-02-11 16:50:46,027 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_ext_vars.tmp_save
+2020-02-11 16:50:46,074 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_ext_vars.tmp
+2020-02-11 16:50:46,101 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_inc.tmp_save
+2020-02-11 16:50:46,231 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\fatfs_inc.tmp
+2020-02-11 16:50:46,268 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\ffconf.h_save
+2020-02-11 16:50:46,359 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\ffconf.h
+2020-02-11 16:50:46,395 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.c_save
+2020-02-11 16:50:46,466 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.c
+2020-02-11 16:50:46,496 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.h_save
+2020-02-11 16:50:46,583 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\Target\user_diskio.h
+2020-02-11 16:50:46,618 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.c_save
+2020-02-11 16:50:46,689 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.c
+2020-02-11 16:50:46,716 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.h_save
+2020-02-11 16:50:46,811 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\FATFS\App\fatfs.h
+2020-02-11 16:50:46,813 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 16:50:46,814 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for RTC
+2020-02-11 16:50:46,814 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 16:50:46,815 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 16:50:46,816 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-02-11 16:50:46,817 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 16:50:46,818 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 16:50:46,819 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SYS
+2020-02-11 16:50:46,819 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 16:50:46,820 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 16:50:46,821 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-02-11 16:50:46,822 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 16:50:46,823 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-02-11 16:50:46,824 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-02-11 16:50:46,825 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 16:50:46,827 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-02-11 16:50:46,827 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-02-11 16:50:46,871 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_it.c_save
+2020-02-11 16:50:46,992 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_it.c
+2020-02-11 16:50:47,023 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_it.h_save
+2020-02-11 16:50:47,113 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_it.h
+2020-02-11 16:50:47,152 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_hal_msp.c_save
+2020-02-11 16:50:47,302 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\stm32f4xx_hal_msp.c
+2020-02-11 16:50:47,327 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\system.tmp_save
+2020-02-11 16:50:47,403 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\MXTmpFiles\system.tmp
+2020-02-11 16:50:47,441 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_hal_conf.h_save
+2020-02-11 16:50:47,556 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\stm32f4xx_hal_conf.h
+2020-02-11 16:50:47,573 [WARN] IPConfigManager:2673 - IP not found : TIM
+2020-02-11 16:50:47,573 [WARN] IPConfigManager:2673 - IP not found : gpio
+2020-02-11 16:50:47,574 [WARN] CodeGenerator:2697 - IP not found : TIM
+2020-02-11 16:50:47,574 [WARN] CodeGenerator:2697 - IP not found : gpio
+2020-02-11 16:50:47,610 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\main.h_save
+2020-02-11 16:50:47,713 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Inc\main.h
+2020-02-11 16:50:47,749 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\main.c_save
+2020-02-11 16:50:47,876 [INFO] CodeEngine:211 - Generated code: C:\Users\parki\Documents\GitHub\SRDAQ_Firmware\Firmware\Core\Src\main.c
+2020-02-11 16:50:48,994 [INFO] ProjectBuilder:1645 - Time for Copy HAL[1] : 710mS.
+2020-02-11 16:50:48,997 [INFO] ProjectBuilder:2206 - Project Generator version: 3.5.2
+2020-02-11 16:50:49,626 [INFO] ConfigFileManager:953 - The Die is : DIE421
+2020-02-11 16:50:51,062 [INFO] ProjectBuilder:2373 - Time for Generating toolchain IDE Files: 2065mS.
+2020-02-11 16:50:51,063 [INFO] ProjectBuilder:1505 - Time for Copy CMSIS : 0mS.
+2020-02-11 16:50:51,071 [INFO] ProjectBuilder:1505 - Time for Copy CMSIS : 0mS.
+2020-02-11 16:59:05,245 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Tab changed to: Clock Configuration
+2020-02-11 17:00:37,836 [INFO] BlockDiagram:1827 - stop enableDisableButtons
