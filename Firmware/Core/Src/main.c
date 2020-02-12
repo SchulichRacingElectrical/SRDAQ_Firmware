@@ -47,8 +47,6 @@
 ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
 
-RTC_HandleTypeDef hrtc;
-
 SPI_HandleTypeDef hspi1;
 
 TIM_HandleTypeDef htim6;
@@ -72,7 +70,6 @@ static void MX_ADC1_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_USART1_UART_Init(void);
-static void MX_RTC_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -89,8 +86,6 @@ UINT br, bw;
 FATFS *pfs;
 DWORD fre_clust;
 uint32_t total, free_space;
-
-char timestamp[20];
 
 void send_uart(char *string) {
 	uint8_t len = strlen(string);
@@ -112,24 +107,9 @@ void bufclear(void) {
 
 //Function called by 50Hz timer interrupt
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	A0 = raw_A0;
-	A1 = raw_A1;
+	A0=raw_A0;
+	A1=raw_A1;
 }
-
-//Function to get time fromt RTC
-void get_time(void) {
-	RTC_DateTypeDef gDate;
-	RTC_TimeTypeDef gTime;
-	/* Get the RTC current Time */
-	HAL_RTC_GetTime(&hrtc, &gTime, RTC_FORMAT_BIN);
-	/* Get the RTC current Date */
-	HAL_RTC_GetDate(&hrtc, &gDate, RTC_FORMAT_BIN);
-	/* Display time Format: hh:mm:ss */
-	sprintf((char*) timestamp, "%02d:%02d:%02d %02d-%02d-%2d", gTime.Hours,
-			gTime.Minutes, gTime.Seconds, gDate.Date, gDate.Month,
-			2000 + gDate.Year);
-}
-
 /* USER CODE END 0 */
 
 /**
@@ -167,8 +147,6 @@ int main(void)
   MX_TIM6_Init();
   MX_FATFS_Init();
   MX_USART1_UART_Init();
-  MX_RTC_Init();
-
   /* USER CODE BEGIN 2 */
 	//Enable timer interrupts
 	HAL_TIM_Base_Start_IT(&htim6);
@@ -186,17 +164,8 @@ int main(void)
 	bufclear();
 	free_space = (uint32_t) (fre_clust * pfs->csize * 0.5);
 
-	get_time();
-
-	fresult = f_open(&fil, "initialization.txt",
-	FA_OPEN_APPEND| FA_READ | FA_WRITE);
-	fresult = f_write(&fil, timestamp, strlen(timestamp), &bw);
-
-	get_time();
-	HAL_Delay(5000);
-
-	fresult = f_write(&fil, timestamp, strlen(timestamp), &bw);
-
+	fresult = f_open(&fil, "initialization.txt", FA_OPEN_ALWAYS | FA_READ | FA_WRITE);
+	fresult = f_write(&fil, "testing", 7, &bw);
 	f_close(&fil);
 
 	int count = 0;
@@ -212,7 +181,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
 		sprintf(test, "%d,%d\n", A0, A1);
 		fresult = f_open(&fil, "datalog.csv",
-		FA_OPEN_APPEND | FA_READ | FA_WRITE);
+				FA_OPEN_APPEND | FA_READ | FA_WRITE);
 		fresult = f_write(&fil, test, strlen(test), &bw);
 		f_close(&fil);
 		count++;
@@ -229,7 +198,6 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
 
   /** Configure the main internal regulator output voltage 
   */
@@ -237,13 +205,13 @@ void SystemClock_Config(void)
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 25;
-  RCC_OscInitStruct.PLL.PLLN = 144;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLM = 8;
+  RCC_OscInitStruct.PLL.PLLN = 72;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 2;
   RCC_OscInitStruct.PLL.PLLR = 2;
@@ -261,12 +229,6 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RTC;
-  PeriphClkInitStruct.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
   }
@@ -327,69 +289,6 @@ static void MX_ADC1_Init(void)
   /* USER CODE BEGIN ADC1_Init 2 */
 
   /* USER CODE END ADC1_Init 2 */
-
-}
-
-/**
-  * @brief RTC Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_RTC_Init(void)
-{
-
-  /* USER CODE BEGIN RTC_Init 0 */
-
-  /* USER CODE END RTC_Init 0 */
-
-  RTC_TimeTypeDef sTime = {0};
-  RTC_DateTypeDef sDate = {0};
-
-  /* USER CODE BEGIN RTC_Init 1 */
-
-  /* USER CODE END RTC_Init 1 */
-  /** Initialize RTC Only 
-  */
-  hrtc.Instance = RTC;
-  hrtc.Init.HourFormat = RTC_HOURFORMAT_12;
-  hrtc.Init.AsynchPrediv = 127;
-  hrtc.Init.SynchPrediv = 255;
-  hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
-  hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
-  hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
-  if (HAL_RTC_Init(&hrtc) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /* USER CODE BEGIN Check_RTC_BKUP */
-
-  /* USER CODE END Check_RTC_BKUP */
-
-  /** Initialize RTC and set the Time and Date 
-  */
-  sTime.Hours = 0x4;
-  sTime.Minutes = 0x50;
-  sTime.Seconds = 0x25;
-  sTime.TimeFormat = RTC_HOURFORMAT12_AM;
-  sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-  sTime.StoreOperation = RTC_STOREOPERATION_RESET;
-  if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sDate.WeekDay = RTC_WEEKDAY_TUESDAY;
-  sDate.Month = RTC_MONTH_FEBRUARY;
-  sDate.Date = 0x11;
-  sDate.Year = 0x20;
-
-  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN RTC_Init 2 */
-
-  /* USER CODE END RTC_Init 2 */
 
 }
 
@@ -528,8 +427,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
@@ -567,12 +466,13 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 	//averaging code
 	uint32_t total_A0 = 0;
 	uint32_t total_A1 = 0;
-	for (i = 0; i < ADC_BUF_LEN - 1; i += 2) {
-		total_A0 += adc_buf[i];
-		total_A1 += adc_buf[i + 1];
-	}
-	raw_A0 = total_A0 / (ADC_BUF_LEN / 2);
-	raw_A1 = total_A1 / (ADC_BUF_LEN / 2);
+	for(i=0; i < ADC_BUF_LEN-1; i+=2)
+	 {
+		  total_A0 += adc_buf[i];
+		  total_A1 += adc_buf[i+1];
+	 }
+	raw_A0=total_A0/(ADC_BUF_LEN/2);
+	raw_A1=total_A1/(ADC_BUF_LEN/2);
 }
 /* USER CODE END 4 */
 
