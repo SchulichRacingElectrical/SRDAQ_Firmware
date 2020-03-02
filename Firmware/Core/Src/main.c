@@ -35,7 +35,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define ADC_BUF_LEN 4096
+#define ADC_BUF_LEN 1024
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -54,6 +54,7 @@ SPI_HandleTypeDef hspi1;
 TIM_HandleTypeDef htim6;
 
 UART_HandleTypeDef huart1;
+UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 uint32_t raw_A0;
@@ -62,6 +63,8 @@ uint32_t A0;
 uint32_t A1;
 uint16_t adc_buf[ADC_BUF_LEN];
 int i = 0;
+int initialized = 0;
+int counter = 5;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -73,6 +76,7 @@ static void MX_SPI1_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_RTC_Init(void);
+static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -113,8 +117,23 @@ void bufclear(void) {
 
 //Function called by 50Hz timer interrupt
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	A0 = raw_A0;
-	A1 = raw_A1;
+	if (initialized) {
+		A0 = raw_A0;
+		A1 = raw_A1;
+
+		char *msg[2048];
+		get_time();
+		sprintf(msg, "%s,%d,%d\n", timestamp, A0, A1);
+		fresult = f_write(&fil, msg, strlen(msg), &bw);
+		counter--;
+		if (counter == 0) { //10hz function
+			f_close(&fil);
+			fresult = f_open(&fil, datalogName,
+			FA_OPEN_APPEND | FA_READ | FA_WRITE);
+			counter = 5;
+
+		}
+	}
 }
 
 //Set the time in the RTC
@@ -197,6 +216,7 @@ int main(void)
   MX_FATFS_Init();
   MX_USART1_UART_Init();
   MX_RTC_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
 	//Enable timer interrupts
@@ -209,7 +229,7 @@ int main(void)
 	}
 
 	get_time();
-	sprintf(datalogName, "datalog_%s.csv",timestamp);
+	sprintf(datalogName, "datalog_%s.csv", timestamp);
 
 	//Mount SD Card
 	fresult = f_mount(&fs, "", 0);
@@ -237,9 +257,13 @@ int main(void)
 	fresult = f_write(&fil, "timestamp,A0,A1\n", 20, &bw);
 	f_close(&fil);
 
-	char *test[2048];
+	initialized = 1;
+	fresult = f_open(&fil, datalogName,
+	FA_OPEN_APPEND | FA_READ | FA_WRITE);
 
   /* USER CODE END 2 */
+ 
+ 
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -248,12 +272,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		get_time();
-		sprintf(test, "%s,%d,%d\n", timestamp, A0, A1);
-		fresult = f_open(&fil, "Datalog.csv",
-		FA_OPEN_APPEND | FA_READ | FA_WRITE);
-		fresult = f_write(&fil, test, strlen(test), &bw);
-		f_close(&fil);
+//		get_time();
+//		sprintf(test, "%s,%d,%d\n", timestamp, A0, A1);
+//		fresult = f_open(&fil, "Datalog.csv",
+//		FA_OPEN_APPEND | FA_READ | FA_WRITE);
+//		fresult = f_write(&fil, test, strlen(test), &bw);
+//		f_close(&fil);
 	}
 	HAL_TIM_Base_Stop_IT(&htim6);
   /* USER CODE END 3 */
@@ -351,7 +375,7 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_3;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_144CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -488,9 +512,9 @@ static void MX_TIM6_Init(void)
 
   /* USER CODE END TIM6_Init 1 */
   htim6.Instance = TIM6;
-  htim6.Init.Prescaler = 3;
+  htim6.Init.Prescaler = 224;
   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim6.Init.Period = 39999;
+  htim6.Init.Period = 7199;
   htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
   {
@@ -541,6 +565,39 @@ static void MX_USART1_UART_Init(void)
 
 }
 
+/**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
 /** 
   * Enable DMA controller clock
   */
@@ -571,6 +628,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
