@@ -47,6 +47,8 @@
 ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
 
+CAN_HandleTypeDef hcan1;
+
 RTC_HandleTypeDef hrtc;
 
 SPI_HandleTypeDef hspi1;
@@ -77,6 +79,7 @@ static void MX_TIM6_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_RTC_Init(void);
 static void MX_USART2_UART_Init(void);
+static void MX_CAN1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -96,10 +99,21 @@ uint32_t total, free_space;
 char timestamp[20];
 char datalogName[32];
 char headers[1024];
+char *latitude;
+char *longitude;
+char *altitude;
 
 void send_uart(char *string) {
 	uint8_t len = strlen(string);
-	HAL_UART_Transmit(&huart1, (uint8_t*) string, len, 2000);
+	HAL_UART_Transmit(&huart2, (uint8_t*) string, len, 2000);
+}
+
+void read_uart(char *response) {
+	uint8_t buffer[1024];
+	HAL_UART_Receive(&huart2, buffer, sizeof(buffer), 2000);
+	for (int i = 0; i < sizeof(buffer); ++i)
+		response[i] = buffer[i];
+	;
 }
 
 //Function called by 50Hz timer interrupt
@@ -206,6 +220,7 @@ int main(void) {
 		set_time();
 	}
 	MX_USART2_UART_Init();
+	MX_CAN1_Init();
 	/* USER CODE BEGIN 2 */
 
 	//Enable timer interrupts
@@ -217,10 +232,12 @@ int main(void) {
 
 	//Mount SD Card
 	fresult = f_mount(&fs, "", 0);
-	if (fresult != FR_OK)
-		send_uart("error mounting SD CARD.... \n");
-	else
-		send_uart("SD CARD mounted....\n");
+//	if (fresult != FR_OK)
+//		send_uart("error mounting SD CARD.... \n");
+//	else
+//		send_uart("SD CARD mounted....\n");
+
+	//gps stuff can go here
 
 	//Get total and free space
 	f_getfree("", &fre_clust, &pfs);
@@ -254,15 +271,28 @@ int main(void) {
 	/* USER CODE BEGIN WHILE */
 
 	while (1) {
+		//Get position from GPS
+		send_uart("log bestposa\n");
+		char response[1024] = { 0 };
+		read_uart(response);
+		char *token = strtok(response, ",");
+		// loop through the string to extract all other tokens
+		int index = 0;
+		while (token != NULL) {
+			token = strtok(NULL, ",");
+			if (index == 10)
+				latitude = token;
+			if (index == 11)
+				longitude = token;
+			if (index == 12){
+				altitude = token;
+				break;
+			}
+			index++;
+		}
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
-//		get_time();
-//		sprintf(test, "%s,%d,%d\n", timestamp, A0, A1);
-//		fresult = f_open(&fil, "Datalog.csv",
-//		FA_OPEN_APPEND | FA_READ | FA_WRITE);
-//		fresult = f_write(&fil, test, strlen(test), &bw);
-//		f_close(&fil);
 	}
 	HAL_TIM_Base_Stop_IT(&htim6);
 	/* USER CODE END 3 */
@@ -369,7 +399,40 @@ static void MX_ADC1_Init(void) {
 	/* USER CODE BEGIN ADC1_Init 2 */
 
 	/* USER CODE END ADC1_Init 2 */
+}
 
+/**
+ * @brief CAN1 Initialization Function
+ * @param None
+ * @retval None
+ */
+static void MX_CAN1_Init(void) {
+
+	/* USER CODE BEGIN CAN1_Init 0 */
+
+	/* USER CODE END CAN1_Init 0 */
+
+	/* USER CODE BEGIN CAN1_Init 1 */
+
+	/* USER CODE END CAN1_Init 1 */
+	hcan1.Instance = CAN1;
+	hcan1.Init.Prescaler = 16;
+	hcan1.Init.Mode = CAN_MODE_NORMAL;
+	hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
+	hcan1.Init.TimeSeg1 = CAN_BS1_1TQ;
+	hcan1.Init.TimeSeg2 = CAN_BS2_1TQ;
+	hcan1.Init.TimeTriggeredMode = DISABLE;
+	hcan1.Init.AutoBusOff = DISABLE;
+	hcan1.Init.AutoWakeUp = DISABLE;
+	hcan1.Init.AutoRetransmission = DISABLE;
+	hcan1.Init.ReceiveFifoLocked = DISABLE;
+	hcan1.Init.TransmitFifoPriority = DISABLE;
+	if (HAL_CAN_Init(&hcan1) != HAL_OK) {
+		Error_Handler();
+	}
+	/* USER CODE BEGIN CAN1_Init 2 */
+
+	/* USER CODE END CAN1_Init 2 */
 }
 
 /**
@@ -427,7 +490,6 @@ static void MX_RTC_Init(void) {
 	/* USER CODE BEGIN RTC_Init 2 */
 
 	/* USER CODE END RTC_Init 2 */
-
 }
 
 /**
@@ -548,7 +610,7 @@ static void MX_USART2_UART_Init(void) {
 
 	/* USER CODE END USART2_Init 1 */
 	huart2.Instance = USART2;
-	huart2.Init.BaudRate = 115200;
+	huart2.Init.BaudRate = 9600;
 	huart2.Init.WordLength = UART_WORDLENGTH_8B;
 	huart2.Init.StopBits = UART_STOPBITS_1;
 	huart2.Init.Parity = UART_PARITY_NONE;
