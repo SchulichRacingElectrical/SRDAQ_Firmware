@@ -86,7 +86,6 @@ static void MX_USART2_UART_Init(void);
 FATFS fs;
 FIL fil;
 FRESULT fresult;
-char buffer[1024];
 
 UINT br, bw;
 
@@ -96,23 +95,11 @@ uint32_t total, free_space;
 
 char timestamp[20];
 char datalogName[32];
+char headers[1024];
 
 void send_uart(char *string) {
 	uint8_t len = strlen(string);
 	HAL_UART_Transmit(&huart1, (uint8_t*) string, len, 2000);
-}
-
-int bufsize(char *buf) {
-	int i = 0;
-	while (*buf++ != '\0')
-		i++;
-	return i;
-}
-
-void bufclear(void) {
-	for (int i = 0; i < 1024; i++) {
-		buffer[i] = '\0';
-	}
 }
 
 //Function called by 50Hz timer interrupt
@@ -238,21 +225,24 @@ int main(void) {
 	//Get total and free space
 	f_getfree("", &fre_clust, &pfs);
 	total = (uint32_t) ((pfs->n_fatent - 2) * pfs->csize * 0.5);
-	bufclear();
 	free_space = (uint32_t) (fre_clust * pfs->csize * 0.5);
 
-	get_time();
-
-	fresult = f_open(&fil, "initialization.txt",
-	FA_OPEN_APPEND | FA_READ | FA_WRITE);
-	fresult = f_write(&fil, timestamp, strlen(timestamp), &bw);
-
-	f_close(&fil);
-
-	fresult = f_open(&fil, datalogName,
-	FA_OPEN_APPEND | FA_READ | FA_WRITE);
-	fresult = f_write(&fil, "timestamp,A0,A1\n", 20, &bw);
-	f_close(&fil);
+	//Open and read the config file from the SD card
+	fresult = f_open(&fil, "config_DO_NOT_DELETE_YOU_MONKEYS.txt", FA_OPEN_EXISTING | FA_READ);
+	if (fresult == FR_OK){
+		f_gets(headers, 1024, &fil);
+		f_close(&fil);
+		//Write the headers into the file
+		fresult = f_open(&fil, datalogName,
+		FA_OPEN_APPEND | FA_READ | FA_WRITE);
+		fresult = f_write(&fil, headers, strlen(headers), &bw);
+		f_close(&fil);
+	} else {
+		fresult = f_open(&fil, datalogName,
+		FA_OPEN_APPEND | FA_READ | FA_WRITE);
+		fresult = f_write(&fil, "config_DO_NOT_DELETE_YOU_MONKEYS.txt not found did you delete it you monkey?\n" , 77, &bw);
+		f_close(&fil);
+	}
 
 	initialized = 1;
 	fresult = f_open(&fil, datalogName,
