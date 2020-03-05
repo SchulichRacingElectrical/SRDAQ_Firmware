@@ -295,8 +295,10 @@ int main(void) {
 				latitude = token;
 			if (index == 11)
 				longitude = token;
-			if (index == 12)
+			if (index == 12){
 				altitude = token;
+				break;
+			}
 			index++;
 		}
 		/* USER CODE END WHILE */
