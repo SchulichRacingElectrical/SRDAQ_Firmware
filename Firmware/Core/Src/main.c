@@ -99,9 +99,9 @@ uint32_t total, free_space;
 char timestamp[20];
 char datalogName[32];
 char headers[1024];
-char *latitude;
-char *longitude;
-char *altitude;
+char latitude[20];
+char longitude[20];
+char altitude[20];
 
 void send_uart(char *string) {
 	uint8_t len = strlen(string);
@@ -193,6 +193,7 @@ int main(void) {
 	/* MCU Configuration--------------------------------------------------------*/
 
 	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+
 	HAL_Init();
 
 	/* USER CODE BEGIN Init */
@@ -268,28 +269,32 @@ int main(void) {
 	//Initialize UART response buffer
 	char response[1024] = { 0 };
 
-	//Get initial position from GPS
-	send_uart("log bestposa\n");
-	read_uart(response);
-	char *token = strtok(response, ",");
-	// loop through the string to extract all other tokens
-	int index = 0;
-	while (token != NULL) {
-		token = strtok(NULL, ",");
-		if (index == 10)
-			latitude = token;
-		if (index == 11)
-			longitude = token;
-		if (index == 12) {
-			altitude = token;
-			break;
-		}
-		index++;
-	}
+//	//Get initial position from GPS
+//	send_uart("log bestposa\n");
+//	read_uart(response);
+//	char *token = strtok(response, ",");
+//	// loop through the string to extract all other tokens
+//	int index = 0;
+//	while (token != NULL) {
+//		token = strtok(NULL, ",");
+//		if (index == 10)
+//			latitude = token;
+//		if (index == 11)
+//			longitude = token;
+//		if (index == 12) {
+//			altitude = token;
+//			break;
+//		}
+//		index++;
+//	}
 
-	initialized = 1;
+	sprintf(latitude, "0.00");
+	sprintf(longitude, "0.00");
+	sprintf(altitude, "0.00");
+
 	fresult = f_open(&fil, datalogName,
 	FA_OPEN_APPEND | FA_READ | FA_WRITE);
+	initialized = 1;
 
 	/* USER CODE END 2 */
 
@@ -306,11 +311,11 @@ int main(void) {
 		while (token != NULL) {
 			token = strtok(NULL, ",");
 			if (index == 10)
-				latitude = token;
+				strncpy(latitude, token, 20);
 			if (index == 11)
-				longitude = token;
+				strncpy(longitude, token, 20);
 			if (index == 12) {
-				altitude = token;
+				strncpy(altitude, token, 20);
 				break;
 			}
 			index++;
