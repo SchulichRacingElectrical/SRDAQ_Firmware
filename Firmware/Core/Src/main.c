@@ -124,7 +124,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
 		char *msg[2048];
 		get_time();
-		sprintf(msg, "%s,%d,%d\n", timestamp, A0, A1);
+		sprintf(msg, "%s,%s,%s,%s,%d,%d\n", timestamp, latitude, longitude,
+				altitude, A0, A1);
 		fresult = f_write(&fil, msg, strlen(msg), &bw);
 		counter--;
 		if (counter == 0) { //10hz function
@@ -132,7 +133,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 			fresult = f_open(&fil, datalogName,
 			FA_OPEN_APPEND | FA_READ | FA_WRITE);
 			counter = 5;
-
 		}
 	}
 }
@@ -214,14 +214,14 @@ int main(void) {
 	MX_TIM6_Init();
 	MX_FATFS_Init();
 	MX_USART1_UART_Init();
-	//Set the time on the RTC
-	if (HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR1) != 0x32F2) {
-		MX_RTC_Init();
-		set_time();
-	}
+	MX_RTC_Init();
 	MX_USART2_UART_Init();
 	MX_CAN1_Init();
 	/* USER CODE BEGIN 2 */
+
+	if (HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR1) != 0x32F2) {
+		set_time();
+	}
 
 	//Enable timer interrupts
 	HAL_TIM_Base_Start_IT(&htim6);
@@ -245,8 +245,9 @@ int main(void) {
 	free_space = (uint32_t) (fre_clust * pfs->csize * 0.5);
 
 	//Open and read the config file from the SD card
-	fresult = f_open(&fil, "config_DO_NOT_DELETE_YOU_MONKEYS.txt", FA_OPEN_EXISTING | FA_READ);
-	if (fresult == FR_OK){
+	fresult = f_open(&fil, "config_DO_NOT_DELETE_YOU_MONKEYS.txt",
+	FA_OPEN_EXISTING | FA_READ);
+	if (fresult == FR_OK) {
 		f_gets(headers, 1024, &fil);
 		f_close(&fil);
 		//Write the headers into the file
@@ -257,8 +258,33 @@ int main(void) {
 	} else {
 		fresult = f_open(&fil, datalogName,
 		FA_OPEN_APPEND | FA_READ | FA_WRITE);
-		fresult = f_write(&fil, "config_DO_NOT_DELETE_YOU_MONKEYS.txt not found did you delete it you monkey?\n" , 77, &bw);
+		fresult =
+				f_write(&fil,
+						"config_DO_NOT_DELETE_YOU_MONKEYS.txt not found did you delete it you monkey?\n",
+						77, &bw);
 		f_close(&fil);
+	}
+
+	//Initialize UART response buffer
+	char response[1024] = { 0 };
+
+	//Get initial position from GPS
+	send_uart("log bestposa\n");
+	read_uart(response);
+	char *token = strtok(response, ",");
+	// loop through the string to extract all other tokens
+	int index = 0;
+	while (token != NULL) {
+		token = strtok(NULL, ",");
+		if (index == 10)
+			latitude = token;
+		if (index == 11)
+			longitude = token;
+		if (index == 12) {
+			altitude = token;
+			break;
+		}
+		index++;
 	}
 
 	initialized = 1;
@@ -273,7 +299,6 @@ int main(void) {
 	while (1) {
 		//Get position from GPS
 		send_uart("log bestposa\n");
-		char response[1024] = { 0 };
 		read_uart(response);
 		char *token = strtok(response, ",");
 		// loop through the string to extract all other tokens
@@ -284,7 +309,7 @@ int main(void) {
 				latitude = token;
 			if (index == 11)
 				longitude = token;
-			if (index == 12){
+			if (index == 12) {
 				altitude = token;
 				break;
 			}
@@ -399,6 +424,7 @@ static void MX_ADC1_Init(void) {
 	/* USER CODE BEGIN ADC1_Init 2 */
 
 	/* USER CODE END ADC1_Init 2 */
+
 }
 
 /**
@@ -433,6 +459,7 @@ static void MX_CAN1_Init(void) {
 	/* USER CODE BEGIN CAN1_Init 2 */
 
 	/* USER CODE END CAN1_Init 2 */
+
 }
 
 /**
@@ -469,27 +496,10 @@ static void MX_RTC_Init(void) {
 
 	/* USER CODE END Check_RTC_BKUP */
 
-	/** Initialize RTC and set the Time and Date
-	 */
-	sTime.Hours = 0x0;
-	sTime.Minutes = 0x0;
-	sTime.Seconds = 0x0;
-	sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-	sTime.StoreOperation = RTC_STOREOPERATION_RESET;
-	if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK) {
-		Error_Handler();
-	}
-	sDate.WeekDay = RTC_WEEKDAY_MONDAY;
-	sDate.Month = RTC_MONTH_JANUARY;
-	sDate.Date = 0x1;
-	sDate.Year = 0x0;
-
-	if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK) {
-		Error_Handler();
-	}
 	/* USER CODE BEGIN RTC_Init 2 */
 
 	/* USER CODE END RTC_Init 2 */
+
 }
 
 /**
