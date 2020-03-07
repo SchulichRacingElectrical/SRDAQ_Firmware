@@ -112,45 +112,100 @@ uint32_t IC_Value1_1 = 0;
 uint32_t IC_Value2_1 = 0;
 uint32_t difference_1 = 0;
 uint32_t frequency_1 = 0;
+uint8_t is_first_1 = 0;
 
 //PWM sample 2
-uint32_t IC_Value1_1 = 0;
-uint32_t IC_Value2_1 = 0;
-uint32_t difference_1 = 0;
-uint32_t frequency_1 = 0;
+uint32_t IC_Value1_2 = 0;
+uint32_t IC_Value2_2 = 0;
+uint32_t difference_2 = 0;
+uint32_t frequency_2 = 0;
+uint8_t is_first_2 = 0;
 
 //PWM sample 3
-uint32_t IC_Value1_1 = 0;
-uint32_t IC_Value2_1 = 0;
-uint32_t difference_1 = 0;
-uint32_t frequency_1 = 0;
+uint32_t IC_Value1_3 = 0;
+uint32_t IC_Value2_3 = 0;
+uint32_t difference_3 = 0;
+uint32_t frequency_3 = 0;
+uint8_t is_first_3 = 0;
 
 //PWM sample 4
-uint32_t IC_Value1_1 = 0;
-uint32_t IC_Value2_1 = 0;
-uint32_t difference_1 = 0;
-uint32_t frequency_1 = 0;
-
-uint8_t is_first = 0;
+uint32_t IC_Value1_4 = 0;
+uint32_t IC_Value2_4 = 0;
+uint32_t difference_4 = 0;
+uint32_t frequency_4 = 0;
+uint8_t is_first_4 = 0;
 
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) { //input capture callback
-	if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2) {
-		if (is_first == 0) {
-			IC_Value1 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
-			is_first = 1;
-		} else if (is_first == 1) {
-			IC_Value2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
-			if (IC_Value2 > IC_Value1) {
-				difference = IC_Value2 - IC_Value1;
-			} else if (IC_Value2 < IC_Value1) {
-				difference = ((0xffff - IC_Value1) + IC_Value2) + 1;
-			}
-			else{
+	if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1) {
+		if (is_first_1 == 0) {
+			IC_Value1_1 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
+			is_first_1 = 1;
+		} else if (is_first_1 == 1) {
+			IC_Value2_1 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
+			if (IC_Value2_1 > IC_Value1_1) {
+				difference_1 = IC_Value2_1 - IC_Value1_1;
+			} else if (IC_Value2_1 < IC_Value1_1) {
+				difference_1 = ((0xffff - IC_Value1_1) + IC_Value2_1) + 1;
+			} else {
 				Error_Handler();
 			}
 			//frequency = apb2 tim clock/difference
-			frequency=72000000/difference/1000;
-			is_first = 0;
+			frequency_1 = 72000000 / difference_1 / 1000;
+			is_first_1 = 0;
+		}
+	}
+	if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2) {
+		if (is_first_2 == 0) {
+			IC_Value1_2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
+			is_first_2 = 1;
+		} else if (is_first_2 == 1) {
+			IC_Value2_2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
+			if (IC_Value2_2 > IC_Value1_2) {
+				difference_2 = IC_Value2_2 - IC_Value1_2;
+			} else if (IC_Value2_2 < IC_Value1_2) {
+				difference_2 = ((0xffff - IC_Value1_2) + IC_Value2_2) + 1;
+			} else {
+				Error_Handler();
+			}
+			//frequency = apb2 tim clock/difference
+			frequency_2 = 72000000 / difference_2 / 1000;
+			is_first_2 = 0;
+		}
+	}
+	if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_3) {
+		if (is_first_3 == 0) {
+			IC_Value1_3 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_3);
+			is_first_3 = 1;
+		} else if (is_first_3 == 1) {
+			IC_Value2_3 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_3);
+			if (IC_Value2_3 > IC_Value1_3) {
+				difference_3 = IC_Value2_3 - IC_Value1_3;
+			} else if (IC_Value2_3 < IC_Value1_3) {
+				difference_3 = ((0xffff - IC_Value1_3) + IC_Value2_3) + 1;
+			} else {
+				Error_Handler();
+			}
+			//frequency = apb2 tim clock/difference
+			frequency_3 = 72000000 / difference_3 / 1000;
+			is_first_3 = 0;
+		}
+	}
+	if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_4) {
+		if (is_first_4 == 0) {
+			IC_Value1_4 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_4);
+			is_first_4 = 1;
+		} else if (is_first_4 == 1) {
+			IC_Value2_4 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_4);
+			if (IC_Value2_4 > IC_Value1_4) {
+				difference_4 = IC_Value2_4 - IC_Value1_4;
+			} else if (IC_Value2_4 < IC_Value1_4) {
+				difference_4 = ((0xffff - IC_Value1_4) + IC_Value2_4) + 1;
+			} else {
+				Error_Handler();
+			}
+			//frequency = apb2 tim clock/difference
+			frequency_4 = 72000000 / difference_4 / 1000;
+			is_first_4 = 0;
 		}
 	}
 }
@@ -897,7 +952,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOB, LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_2, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(SPI_CS_GPIO_Port, SPI_CS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : LD3_Pin LD2_Pin */
   GPIO_InitStruct.Pin = LD3_Pin|LD2_Pin;
@@ -906,12 +961,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PG2 */
-  GPIO_InitStruct.Pin = GPIO_PIN_2;
+  /*Configure GPIO pin : SPI_CS_Pin */
+  GPIO_InitStruct.Pin = SPI_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
+  HAL_GPIO_Init(SPI_CS_GPIO_Port, &GPIO_InitStruct);
 
 }
 

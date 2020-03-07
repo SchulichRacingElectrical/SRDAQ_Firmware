@@ -68,6 +68,8 @@ void Error_Handler(void);
 #define PWM_3_GPIO_Port GPIOB
 #define LD3_Pin GPIO_PIN_14
 #define LD3_GPIO_Port GPIOB
+#define SPI_CS_Pin GPIO_PIN_2
+#define SPI_CS_GPIO_Port GPIOG
 #define PWM_1_Pin GPIO_PIN_6
 #define PWM_1_GPIO_Port GPIOC
 #define PWM_2_Pin GPIO_PIN_7
