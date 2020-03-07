@@ -408,7 +408,7 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
     PB2     ------> TIM2_CH4
     PB10     ------> TIM2_CH3 
     */
-    GPIO_InitStruct.Pin = PWM_2_Pin|PWM_1_Pin;
+    GPIO_InitStruct.Pin = PWM_4_Pin|PWM_3_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -435,7 +435,7 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
     PC6     ------> TIM3_CH1
     PC7     ------> TIM3_CH2 
     */
-    GPIO_InitStruct.Pin = PWM_3_Pin|PWM_4_Pin;
+    GPIO_InitStruct.Pin = PWM_1_Pin|PWM_2_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -486,7 +486,7 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
     PB2     ------> TIM2_CH4
     PB10     ------> TIM2_CH3 
     */
-    HAL_GPIO_DeInit(GPIOB, PWM_2_Pin|PWM_1_Pin);
+    HAL_GPIO_DeInit(GPIOB, PWM_4_Pin|PWM_3_Pin);
 
     /* TIM2 interrupt DeInit */
     HAL_NVIC_DisableIRQ(TIM2_IRQn);
@@ -506,7 +506,7 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
     PC6     ------> TIM3_CH1
     PC7     ------> TIM3_CH2 
     */
-    HAL_GPIO_DeInit(GPIOC, PWM_3_Pin|PWM_4_Pin);
+    HAL_GPIO_DeInit(GPIOC, PWM_1_Pin|PWM_2_Pin);
 
     /* TIM3 interrupt DeInit */
     HAL_NVIC_DisableIRQ(TIM3_IRQn);

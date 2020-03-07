@@ -107,10 +107,29 @@ char latitude[20];
 char longitude[20];
 char altitude[20];
 
-uint32_t IC_Value1 = 0;
-uint32_t IC_Value2 = 0;
-uint32_t difference = 0;
-uint32_t frequency = 0;
+//PWM sample 1
+uint32_t IC_Value1_1 = 0;
+uint32_t IC_Value2_1 = 0;
+uint32_t difference_1 = 0;
+uint32_t frequency_1 = 0;
+
+//PWM sample 2
+uint32_t IC_Value1_1 = 0;
+uint32_t IC_Value2_1 = 0;
+uint32_t difference_1 = 0;
+uint32_t frequency_1 = 0;
+
+//PWM sample 3
+uint32_t IC_Value1_1 = 0;
+uint32_t IC_Value2_1 = 0;
+uint32_t difference_1 = 0;
+uint32_t frequency_1 = 0;
+
+//PWM sample 4
+uint32_t IC_Value1_1 = 0;
+uint32_t IC_Value2_1 = 0;
+uint32_t difference_1 = 0;
+uint32_t frequency_1 = 0;
 
 uint8_t is_first = 0;
 
