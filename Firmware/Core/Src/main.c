@@ -59,6 +59,7 @@ UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
+CAN_RxHeaderTypeDef RxCanHeader;
 uint32_t raw_A0;
 uint32_t raw_A1;
 uint32_t A0;
@@ -102,6 +103,7 @@ char headers[1024];
 char latitude[20];
 char longitude[20];
 char altitude[20];
+char CANresponse[50];
 
 void send_uart(char *string) {
 	uint8_t len = strlen(string);
@@ -124,8 +126,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
 		char *msg[2048];
 		get_time();
-		sprintf(msg, "%s,%s,%s,%s,%d,%d\n", timestamp, latitude, longitude,
-				altitude, A0, A1);
+		sprintf(msg, "%s,%s,%s,%s,%s,%d,%d\n", timestamp, latitude, longitude,
+				altitude, CANresponse, A0, A1);
 		fresult = f_write(&fil, msg, strlen(msg), &bw);
 		counter--;
 		if (counter == 0) { //10hz function
@@ -193,7 +195,6 @@ int main(void) {
 	/* MCU Configuration--------------------------------------------------------*/
 
 	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-
 	HAL_Init();
 
 	/* USER CODE BEGIN Init */
@@ -269,6 +270,10 @@ int main(void) {
 	//Initialize UART response buffer
 	char response[1024] = { 0 };
 
+	while (1) {
+		HAL_CAN_GetRxMessage(&hcan1, 0, &RxCanHeader, CANresponse);
+	}
+
 //	//Get initial position from GPS
 //	send_uart("log bestposa\n");
 //	read_uart(response);
@@ -343,16 +348,15 @@ void SystemClock_Config(void) {
 	__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
 	/** Initializes the CPU, AHB and APB busses clocks
 	 */
-	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI
-			| RCC_OSCILLATORTYPE_LSI;
+	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI
+			| RCC_OSCILLATORTYPE_HSE;
+	RCC_OscInitStruct.HSEState = RCC_HSE_ON;
 	RCC_OscInitStruct.LSEState = RCC_LSE_OFF;
-	RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-	RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
 	RCC_OscInitStruct.LSIState = RCC_LSI_ON;
 	RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-	RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-	RCC_OscInitStruct.PLL.PLLM = 8;
-	RCC_OscInitStruct.PLL.PLLN = 72;
+	RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+	RCC_OscInitStruct.PLL.PLLM = 25;
+	RCC_OscInitStruct.PLL.PLLN = 144;
 	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
 	RCC_OscInitStruct.PLL.PLLQ = 2;
 	RCC_OscInitStruct.PLL.PLLR = 2;
@@ -501,6 +505,24 @@ static void MX_RTC_Init(void) {
 
 	/* USER CODE END Check_RTC_BKUP */
 
+	/** Initialize RTC and set the Time and Date
+	 */
+	sTime.Hours = 0x16;
+	sTime.Minutes = 0x48;
+	sTime.Seconds = 0x30;
+	sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
+	sTime.StoreOperation = RTC_STOREOPERATION_RESET;
+	if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK) {
+		Error_Handler();
+	}
+	sDate.WeekDay = RTC_WEEKDAY_THURSDAY;
+	sDate.Month = RTC_MONTH_MARCH;
+	sDate.Date = 0x5;
+	sDate.Year = 0x20;
+
+	if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK) {
+		Error_Handler();
+	}
 	/* USER CODE BEGIN RTC_Init 2 */
 
 	/* USER CODE END RTC_Init 2 */
@@ -665,6 +687,7 @@ static void MX_GPIO_Init(void) {
 	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
 
 	/* GPIO Ports Clock Enable */
+	__HAL_RCC_GPIOH_CLK_ENABLE();
 	__HAL_RCC_GPIOC_CLK_ENABLE();
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	__HAL_RCC_GPIOB_CLK_ENABLE();
