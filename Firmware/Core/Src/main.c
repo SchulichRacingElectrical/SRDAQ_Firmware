@@ -59,7 +59,6 @@ UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-CAN_RxHeaderTypeDef RxCanHeader;
 uint32_t raw_A0;
 uint32_t raw_A1;
 uint32_t A0;
@@ -103,7 +102,8 @@ char headers[1024];
 char latitude[20];
 char longitude[20];
 char altitude[20];
-char CANresponse[50];
+uint8_t CANresponse[8];
+CAN_RxHeaderTypeDef RxCanHeader;
 
 void send_uart(char *string) {
 	uint8_t len = strlen(string);
@@ -221,6 +221,13 @@ int main(void) {
 	MX_CAN1_Init();
 	/* USER CODE BEGIN 2 */
 
+	//CAN Stuff
+	HAL_StatusTypeDef CAN_STATUS = HAL_CAN_Start(&hcan1);
+	while (HAL_CAN_GetRxFifoFillLevel(&hcan1, CAN_RX_FIFO0) == 0) {
+	}
+	HAL_StatusTypeDef HAL_Response = HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0,
+			&RxCanHeader, CANresponse);
+
 	if (HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR1) != 0x32F2) {
 		set_time();
 	}
@@ -266,13 +273,7 @@ int main(void) {
 						77, &bw);
 		f_close(&fil);
 	}
-
-	//Initialize UART response buffer
 	char response[1024] = { 0 };
-
-	while (1) {
-		HAL_CAN_GetRxMessage(&hcan1, 0, &RxCanHeader, CANresponse);
-	}
 
 //	//Get initial position from GPS
 //	send_uart("log bestposa\n");
@@ -466,7 +467,27 @@ static void MX_CAN1_Init(void) {
 		Error_Handler();
 	}
 	/* USER CODE BEGIN CAN1_Init 2 */
+	RxCanHeader.StdId = 0x70;
+	RxCanHeader.DLC = 8;
+	RxCanHeader.ExtId = CAN_ID_EXT;
+	RxCanHeader.FilterMatchIndex = 0;
+	RxCanHeader.IDE = CAN_ID_STD;
+	RxCanHeader.RTR = CAN_RTR_DATA;
+	RxCanHeader.Timestamp = 0;
 
+	CAN_FilterTypeDef filterConfig;
+
+	filterConfig.FilterBank = 14;
+	filterConfig.FilterActivation = ENABLE;
+	filterConfig.FilterFIFOAssignment = 0;
+	filterConfig.FilterIdHigh = 0x0000;
+	filterConfig.FilterIdLow = 0x0000;
+	filterConfig.FilterMaskIdHigh = 0x0000;
+	filterConfig.FilterMaskIdLow = 0x0000;
+	filterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
+	filterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
+
+	HAL_CAN_ConfigFilter(&hcan1, &filterConfig);
 	/* USER CODE END CAN1_Init 2 */
 
 }
