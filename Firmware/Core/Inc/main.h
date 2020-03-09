@@ -76,6 +76,10 @@ void Error_Handler(void);
 #define PWM_2_GPIO_Port GPIOC
 #define LD2_Pin GPIO_PIN_7
 #define LD2_GPIO_Port GPIOB
+#define Log_Pin GPIO_PIN_0
+#define Log_GPIO_Port GPIOE
+#define Detect_Pin GPIO_PIN_1
+#define Detect_GPIO_Port GPIOE
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
