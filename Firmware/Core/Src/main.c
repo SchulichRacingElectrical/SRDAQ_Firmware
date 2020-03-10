@@ -104,6 +104,9 @@ char longitude[20];
 char altitude[20];
 uint8_t CANresponse;
 CAN_RxHeaderTypeDef RxCanHeader;
+CAN_TxHeaderTypeDef TxCanHeader;
+uint32_t TxMailbox;
+
 
 void send_uart(char *string) {
 	uint8_t len = strlen(string);
@@ -223,23 +226,22 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 	//CAN Stuff
-	RxCanHeader.StdId = 0x70;
-	RxCanHeader.DLC = 1;
-	RxCanHeader.ExtId = CAN_ID_EXT;
-	RxCanHeader.RTR = CAN_RTR_DATA;
-	RxCanHeader.Timestamp = 0;
+	TxCanHeader.StdId = 0x70;
+	TxCanHeader.DLC = 2;
+	TxCanHeader.ExtId = CAN_ID_STD;
+	TxCanHeader.RTR = CAN_RTR_DATA;
 
 	CAN_FilterTypeDef filterConfig;
 	filterConfig.FilterActivation = ENABLE;
 	filterConfig.FilterFIFOAssignment = CAN_FILTER_FIFO0;
-	filterConfig.FilterIdHigh = 0x70<<5;
+	filterConfig.FilterIdHigh = 0xffff;
 	filterConfig.FilterIdLow = 0x0000;
 	filterConfig.FilterMaskIdHigh = 0x0000;
 	filterConfig.FilterMaskIdLow = 0x0000;
 	filterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
 	filterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
 
-//	HAL_CAN_ConfigFilter(&hcan1, &filterConfig);
+	HAL_CAN_ConfigFilter(&hcan1, &filterConfig);
 
 	HAL_StatusTypeDef CAN_STATUS = HAL_CAN_Start(&hcan1);
 	HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
@@ -327,7 +329,9 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 //
+	uint8_t msg[8]={6,9};
 	while (1) {
+		CAN_STATUS = HAL_CAN_AddTxMessage(&hcan1, &TxCanHeader, &msg, TxMailbox);
 //		//Get position from GPS
 //		send_uart("log bestposa\n");
 //		read_uart(response);
@@ -480,13 +484,13 @@ static void MX_CAN1_Init(void)
 
   /* USER CODE END CAN1_Init 1 */
   hcan1.Instance = CAN1;
-  hcan1.Init.Prescaler = 4;
+  hcan1.Init.Prescaler = 9;
   hcan1.Init.Mode = CAN_MODE_NORMAL;
   hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
-  hcan1.Init.TimeSeg1 = CAN_BS1_10TQ;
-  hcan1.Init.TimeSeg2 = CAN_BS2_7TQ;
+  hcan1.Init.TimeSeg1 = CAN_BS1_13TQ;
+  hcan1.Init.TimeSeg2 = CAN_BS2_2TQ;
   hcan1.Init.TimeTriggeredMode = DISABLE;
-  hcan1.Init.AutoBusOff = DISABLE;
+  hcan1.Init.AutoBusOff = ENABLE;
   hcan1.Init.AutoWakeUp = DISABLE;
   hcan1.Init.AutoRetransmission = DISABLE;
   hcan1.Init.ReceiveFifoLocked = DISABLE;
