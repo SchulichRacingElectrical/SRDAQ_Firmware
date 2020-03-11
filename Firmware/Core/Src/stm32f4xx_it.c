@@ -242,6 +242,7 @@ void TIM3_IRQHandler(void)
   /* USER CODE BEGIN TIM3_IRQn 1 */
 
   /* USER CODE END TIM3_IRQn 1 */
+}
 /*
   * @brief This function handles CAN1 RX0 interrupt.
   */
