@@ -63,12 +63,13 @@ UART_HandleTypeDef huart2;
 /* USER CODE BEGIN PV */
 uint32_t raw_A0;
 uint32_t raw_A1;
-uint32_t A0;
-uint32_t A1;
+float A0;
+float A1;
 uint16_t adc_buf[ADC_BUF_LEN];
 int i = 0;
 int initialized = 0;
 int counter = 5;
+float ADC_MAX=3755;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -222,7 +223,7 @@ void send_uart(char *string) {
 void read_uart(char *response) {
 	uint8_t buffer[1024];
 	HAL_StatusTypeDef uart_response = HAL_UART_Receive(&huart2, buffer,
-			sizeof(buffer), 1000);
+			sizeof(buffer), 50);
 	if (uart_response == HAL_OK) {
 		for (int i = 0; i < sizeof(buffer); ++i)
 			response[i] = buffer[i];
@@ -233,12 +234,12 @@ void read_uart(char *response) {
 //Function called by 50Hz timer interrupt
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if (initialized) {
-		A0 = raw_A0;
-		A1 = raw_A1;
+		A0 = raw_A0/ADC_MAX*3.3;
+		A1 = raw_A1/ADC_MAX*3.3;
 
 		char *msg[2048];
 		get_time();
-		sprintf(msg, "%s,%s,%s,%s,%d,%d,%d\n", timestamp, latitude, longitude,
+		sprintf(msg, "%s,%s,%s,%s,%f,%f,%d\n", timestamp, latitude, longitude,
 				altitude, A0, A1, CANresponse[0]);
 		fresult = f_write(&fil, msg, strlen(msg), &bw);
 		counter--;
@@ -246,23 +247,23 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
 			//Get position from gps
 
-			char response[1024] = { 0 };
-			read_uart(response);
-			char *token = strtok(response, ",");
-			// loop through the string to extract all other tokens
-			int index = 0;
-			while (token != NULL) {
-				token = strtok(NULL, ",");
-				if (index == 10)
-					strncpy(latitude, token, 20);
-				if (index == 11)
-					strncpy(longitude, token, 20);
-				if (index == 12) {
-					strncpy(altitude, token, 20);
-					break;
-				}
-				index++;
-			}
+//			char response[1024] = { 0 };
+//			read_uart(response);
+//			char *token = strtok(response, ",");
+//			// loop through the string to extract all other tokens
+//			int index = 0;
+//			while (token != NULL) {
+//				token = strtok(NULL, ",");
+//				if (index == 10)
+//					strncpy(latitude, token, 20);
+//				if (index == 11)
+//					strncpy(longitude, token, 20);
+//				if (index == 12) {
+//					strncpy(altitude, token, 20);
+//					break;
+//				}
+//				index++;
+//			}
 
 
 			f_close(&fil); //close the sd card
