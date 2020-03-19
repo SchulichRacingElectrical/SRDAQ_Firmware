@@ -245,6 +245,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		if (counter == 0) { //10hz function
 
 			//Get position from gps
+
+			char response[1024] = { 0 };
 			read_uart(response);
 			char *token = strtok(response, ",");
 			// loop through the string to extract all other tokens
@@ -391,7 +393,6 @@ int main(void) {
 						77, &bw);
 		f_close(&fil);
 	}
-	char response[1024] = { 0 };
 
 	sprintf(latitude, "0.00");
 	sprintf(longitude, "0.00");
