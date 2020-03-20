@@ -92,6 +92,8 @@ void Error_Handler(void);
 #define A9_GPIO_Port GPIOB
 #define PWM_2_Pin GPIO_PIN_2
 #define PWM_2_GPIO_Port GPIOB
+#define Log_Switch_Pin GPIO_PIN_7
+#define Log_Switch_GPIO_Port GPIOE
 #define PWM_1_Pin GPIO_PIN_10
 #define PWM_1_GPIO_Port GPIOB
 #define LED3_Pin GPIO_PIN_14
@@ -102,10 +104,10 @@ void Error_Handler(void);
 #define PWM_3_GPIO_Port GPIOC
 #define PWM_4_Pin GPIO_PIN_7
 #define PWM_4_GPIO_Port GPIOC
-#define GPS_Ready_Pin GPIO_PIN_10
-#define GPS_Ready_GPIO_Port GPIOG
-#define GPS_nReset_Pin GPIO_PIN_11
+#define GPS_nReset_Pin GPIO_PIN_10
 #define GPS_nReset_GPIO_Port GPIOG
+#define GPS_Ready_Pin GPIO_PIN_11
+#define GPS_Ready_GPIO_Port GPIOG
 #define SD_SCK_Pin GPIO_PIN_3
 #define SD_SCK_GPIO_Port GPIOB
 #define SD_MISO_Pin GPIO_PIN_4
@@ -114,8 +116,6 @@ void Error_Handler(void);
 #define SD_MOSI_GPIO_Port GPIOB
 #define LED2_Pin GPIO_PIN_7
 #define LED2_GPIO_Port GPIOB
-#define LOG_Switch_Pin GPIO_PIN_0
-#define LOG_Switch_GPIO_Port GPIOE
 #define SD_Detect_Pin GPIO_PIN_1
 #define SD_Detect_GPIO_Port GPIOE
 /* USER CODE BEGIN Private defines */
