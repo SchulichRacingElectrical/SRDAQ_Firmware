@@ -235,7 +235,8 @@ void float_to_string(char *buffer, float input) {
 }
 //Function called by 50Hz timer interrupt
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	if (initialized) {
+	if (initialized) { //if (initialized && HAL_GPIO_ReadPin(Log_Switch_GPIO_Port, Log_Switch_Pin)) {
+		GPIO_PinState SD_Connected = !HAL_GPIO_ReadPin(SD_Detect_GPIO_Port, SD_Detect_Pin); //active low
 		HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
 		char sADC_Array[16][128];
 		char sADC_msg[128] = {};
