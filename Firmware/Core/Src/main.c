@@ -236,6 +236,7 @@ void float_to_string(char *buffer, float input) {
 //Function called by 50Hz timer interrupt
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if (initialized) {
+		HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
 		char sADC_Array[16][128];
 		char sADC_msg[128] = {};
 		for (int i = 0; i < 16; i++) {
@@ -277,6 +278,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 			FA_OPEN_APPEND | FA_READ | FA_WRITE); //re-open the sd card
 			counter = 5;
 		}
+
+		HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
 	}
 }
 
@@ -1070,12 +1073,10 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
-	HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
 }
 
 // Called when buffer is completely filled
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
-	HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
 	//averaging code
 
 	for (i = 0; i < ADC_BUF_LEN; i += 16) {
