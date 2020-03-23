@@ -107,6 +107,7 @@ char headers[1024];
 char latitude[20];
 char longitude[20];
 char altitude[20];
+char default_adc_headers[64]="A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15";
 uint8_t CANresponse[50];
 CAN_RxHeaderTypeDef RxCanHeader;
 
@@ -248,7 +249,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
 		char *msg[4096];
 		get_time();
-		sprintf(msg, "%s,%s,%s,%s,%s,%d\n", timestamp, latitude, longitude,
+		sprintf(msg, "%s,%s,%s%s,%s,%d\n", timestamp, latitude, longitude,
 				altitude, sADC_msg, CANresponse[0]);
 		fresult = f_write(&fil, msg, strlen(msg), &bw);
 		counter--;
@@ -396,6 +397,8 @@ int main(void)
 		//Write the headers into the file
 		fresult = f_open(&fil, datalogName,
 		FA_OPEN_APPEND | FA_READ | FA_WRITE);
+		headers[strlen(headers)-1] = 0;
+		sprintf(headers, "%s,%s\n",headers,default_adc_headers); //append adc headers to the headers from the config file FOR NOW
 		fresult = f_write(&fil, headers, strlen(headers), &bw);
 		f_close(&fil);
 	} else {
