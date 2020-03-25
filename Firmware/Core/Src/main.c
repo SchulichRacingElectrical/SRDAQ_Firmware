@@ -445,6 +445,10 @@ int main(void) {
 								"PWM2:N/A:0\nPWM3:N/A:0",
 						486, &bw);
 		f_close(&fil);
+
+		for (int i = 0; i < 20; i++){ //set the scaling factors to 1 to retain raw data
+			scaling_factors[i] = 1;
+		}
 	}
 
 	sprintf(latitude, "0.00");
