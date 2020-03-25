@@ -192,10 +192,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 			sprintf(sADC_msg, "%s,%s", sADC_msg, sADC_Array[i]); //append string to adc value string
 		}
 
-		uint32_t f1_scaled = frequency_1 * scaling_factors[16];
-		uint32_t f2_scaled = frequency_2 * scaling_factors[17];
-		uint32_t f3_scaled = frequency_3 * scaling_factors[18];
-		uint32_t f4_scaled = frequency_4 * scaling_factors[19];
+		uint32_t f1_scaled = frequency[0] * scaling_factors[16];
+		uint32_t f2_scaled = frequency[1] * scaling_factors[17];
+		uint32_t f3_scaled = frequency[2] * scaling_factors[18];
+		uint32_t f4_scaled = frequency[3] * scaling_factors[19];
 
 		char *msg[4096];
 		get_time();
