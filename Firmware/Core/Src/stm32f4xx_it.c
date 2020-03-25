@@ -226,6 +226,7 @@ void CAN1_RX0_IRQHandler(void)
   /* USER CODE END CAN1_RX0_IRQn 0 */
   HAL_CAN_IRQHandler(&hcan1);
   /* USER CODE BEGIN CAN1_RX0_IRQn 1 */
+  //Pull the most recent CAN msg out of the FIFO buffer and put it in the CANResponse array, adn store the header in RxCanHeader
 	HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxCanHeader, &CANresponse);
   /* USER CODE END CAN1_RX0_IRQn 1 */
 }
