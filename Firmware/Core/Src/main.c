@@ -245,7 +245,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		for (int i = 0; i < 16; i++) {
 			ADC_Array[i] = raw_ADC[i] / ADC_MAX * 3.3 * scaling_factors[i]; //scale the array
 			float_to_string(sADC_Array[i], ADC_Array[i]); //convert to string
-			sprintf(sADC_msg, "%s,%s", sADC_msg, sADC_Array[i]); //append string to adc value string
+			if (i == 0) {
+				sprintf(sADC_msg, "%s", sADC_Array[i]); //append string to adc value string
+			} else {
+				sprintf(sADC_msg, "%s,%s", sADC_msg, sADC_Array[i]); //append string to adc value string
+			}
 		}
 
 		uint32_t f1_scaled = frequency_1 * scaling_factors[16];
@@ -395,7 +399,7 @@ int main(void) {
 	free_space = (uint32_t) (fre_clust * pfs->csize * 0.5);
 
 	//Open and read the config file from the SD card
-	fresult = f_open(&fil, "config_DO_NOT_DELETE_YOU_MONKEYS.txt",
+	fresult = f_open(&fil, "config.txt",
 	FA_OPEN_EXISTING | FA_READ);
 	if (fresult == FR_OK) {
 		int scaling_Index = 0;
@@ -432,21 +436,25 @@ int main(void) {
 		FA_OPEN_APPEND | FA_READ | FA_WRITE);
 		fresult =
 				f_write(&fil,
-						"config_DO_NOT_DELETE_YOU_MONKEYS.txt not found did you delete it you monkey? Well I rebuilt it for you,\n",
-						104, &bw);
+						"config.txt not found it has been rebuilt. The data here has not been scaled and falls under default headers,\n",
+						109, &bw);
+		fresult =
+				f_write(&fil,
+						"Timestamp,Latitude,Longitude,Altitude,A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,PWM0,PWM1,PWM2,PWM3,\n",
+						113, &bw);
+
 		f_close(&fil);
-		fresult = f_open(&fil, "config_DO_NOT_DELETE_YOU_MONKEYS.txt",
-				FA_OPEN_ALWAYS | FA_READ | FA_WRITE);
+		fresult = f_open(&fil, "config.txt",
+		FA_OPEN_ALWAYS | FA_READ | FA_WRITE);
 		fresult =
 				f_write(&fil,
 						"//The Order of the headers must be maintained (GPS,Analog,PWM,CAN)\n//Lines with " "//" " "
-								"at the beginning will be ignored\n\n//GPS Headers (Input:Header)\nTime:Timestamp\nLat:Latitude\nLong:Longitude\nAlt:Altitude\n\n//Analog Inputs (Input:Header:Scaling Factor)\nA0:N/A:0\nA1:N/A:0\nA2:N/A:0\nA3:N/A:0\nA4:N/A:0\nA5:N/A:0\nA6:N/A:0\nA7:N/A:0\nA8:N/A:0\nA9:N/A:0\nA10:N/A:0\nA11:N/A:0\n"
+								"at the beginning will be ignored\n//Do NOT include any commas in the headers\n\n//GPS Headers (Input:Header)\nTime:Timestamp\nLat:Latitude\nLong:Longitude\nAlt:Altitude\n\n//Analog Inputs (Input:Header:Scaling Factor)\nA0:N/A:0\nA1:N/A:0\nA2:N/A:0\nA3:N/A:0\nA4:N/A:0\nA5:N/A:0\nA6:N/A:0\nA7:N/A:0\nA8:N/A:0\nA9:N/A:0\nA10:N/A:0\nA11:N/A:0\n"
 								"A12:N/A:0\nA13:N/A:0\nA14:N/A:0\nA15:N/A:0\n\n//PWM Inputs (Input:Header:Scaling Factor)\nPWM0:N/A:0\nPWM1:N/A:0\n"
-								"PWM2:N/A:0\nPWM3:N/A:0",
-						486, &bw);
+								"PWM2:N/A:0\nPWM3:N/A:0", 529, &bw);
 		f_close(&fil);
 
-		for (int i = 0; i < 20; i++){ //set the scaling factors to 1 to retain raw data
+		for (int i = 0; i < 20; i++) { //set the scaling factors to 1 to retain raw data
 			scaling_factors[i] = 1;
 		}
 	}
