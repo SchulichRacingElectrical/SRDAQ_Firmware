@@ -93,25 +93,25 @@ FATFS *pfs;
 DWORD fre_clust;
 uint32_t total, free_space;
 
-char timestamp[20];
-char datalogName[32];
-char headers[1024];
-char latitude[20];
-char longitude[20];
-char altitude[20];
-float scaling_factors[20];
-uint8_t CANresponse[50];
-CAN_RxHeaderTypeDef RxCanHeader;
+char timestamp[20]; //Char array used to store a timestamp from the RTC
+char datalogName[32]; //The name of the datalog .csv file
+char headers[1024]; //The headers to be applied to the .csv
+char latitude[20]; //The latitude received from the GPS
+char longitude[20]; //The longitude received from the GPS
+char altitude[20]; //The latitude received from the GPS
+float scaling_factors[20]; //The scaling factors to be applied to the various data, 0-15 for ADC, 16-19 for PWM
+uint8_t CANresponse[50]; //The response received from the CAN
+CAN_RxHeaderTypeDef RxCanHeader; //The header associated with the CAN data
 
-uint32_t raw_ADC[16];
+uint32_t raw_ADC[16]; //The raw ADC data before any modification
 
-uint32_t total_ADC[16];
-float ADC_Array[16];
-uint16_t adc_buf[ADC_BUF_LEN];
-int i = 0;
-int initialized = 0;
-int counter = 5;
-float ADC_MAX = 3755;
+uint32_t total_ADC[16]; //the ADC data totaled
+float ADC_Array[16]; //The useful ADC data
+uint16_t adc_buf[ADC_BUF_LEN]; //Circular buffer collecting ADC data
+//int i = 0;
+int initialized = 0; //Boolean to check if initialization is done, lets the interrupts run
+int counter = 5; //Counter used to create a 10Hz function
+float ADC_MAX = 3755; //The max value the ADC can read
 
 //PWM sample arrays
 uint32_t IC_Value1[4];
@@ -176,39 +176,42 @@ void read_uart(char *response) {
 		;
 	}
 }
+
+//Custom function to convert a float to a char array
 void float_to_string(char *buffer, float input) {
 	sprintf(buffer, "%.3f", input);
 }
 //Function called by 50Hz timer interrupt
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	if (initialized) { //if (initialized && HAL_GPIO_ReadPin(Log_Switch_GPIO_Port, Log_Switch_Pin)) {
+	if (initialized) { //if (initialized && HAL_GPIO_ReadPin(Log_Switch_GPIO_Port, Log_Switch_Pin)) { //Check if initialization is done
 		GPIO_PinState SD_Connected = !HAL_GPIO_ReadPin(SD_Detect_GPIO_Port,
 				SD_Detect_Pin); //active low
 		HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
-		char sADC_Array[16][128];
-		char sADC_msg[128] = { };
+		char sADC_Array[16][128]; //temp array used to store the scaled ADC data
+		char sADC_msg[128] = { }; //Char array for the ADC data
 		for (int i = 0; i < 16; i++) {
 			ADC_Array[i] = raw_ADC[i] / ADC_MAX * 3.3 * scaling_factors[i]; //scale the array
 			float_to_string(sADC_Array[i], ADC_Array[i]); //convert to string
-			if (i == 0) {
+			if (i == 0) { //Check if this is the first data value to ensure formating in the .csv file
 				sprintf(sADC_msg, "%s", sADC_Array[i]); //append string to adc value string
 			} else {
 				sprintf(sADC_msg, "%s,%s", sADC_msg, sADC_Array[i]); //append string to adc value string
 			}
 		}
 
+		//Apply the scaling factors to the PWM data
 		uint32_t f1_scaled = frequency[0] * scaling_factors[16];
 		uint32_t f2_scaled = frequency[1] * scaling_factors[17];
 		uint32_t f3_scaled = frequency[2] * scaling_factors[18];
 		uint32_t f4_scaled = frequency[3] * scaling_factors[19];
 
-		char *msg[4096];
-		get_time();
+		char *msg[4096]; //msg used to write data to the .csv
+		get_time(); //get an updated timestamp for the data
 		sprintf(msg, "%s,%s,%s,%s,%s,%d,%d,%d,%d,%d\n", timestamp, latitude,
 				longitude, altitude, sADC_msg, f1_scaled, f2_scaled, f3_scaled,
-				f4_scaled, CANresponse[0]);
-		fresult = f_write(&fil, msg, strlen(msg), &bw);
-		counter--;
+				f4_scaled, CANresponse[0]); //compile the data into the msg
+		fresult = f_write(&fil, msg, strlen(msg), &bw); //write to the .csv
+		counter--; //Decrement the counter, used to create a 10Hz function
 		if (counter == 0) { //10hz function
 
 			//Get position from gps
@@ -230,12 +233,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 //				index++; //increment
 //			}
 
-			f_close(&fil); //close the sd card
+			f_close(&fil); //close the sd card to save the current data
 			fresult = f_open(&fil, datalogName,
-			FA_OPEN_APPEND | FA_READ | FA_WRITE); //re-open the sd card
-			counter = 5;
+			FA_OPEN_APPEND | FA_READ | FA_WRITE); //re-open the sd card so new data can be written
+			counter = 5; //reset the counter
 		}
-		if (SD_Connected) {
+		if (SD_Connected) { //check if there is an SD card in the slot
 			HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
 		}
 	}
@@ -299,6 +302,7 @@ int main(void) {
 	MX_TIM3_Init();
 	/* USER CODE BEGIN 2 */
 
+	//Define the CAN Filter configuration
 	CAN_FilterTypeDef filterConfig;
 
 	filterConfig.FilterBank = 14;
@@ -311,10 +315,10 @@ int main(void) {
 	filterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
 	filterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
 
-	HAL_CAN_ConfigFilter(&hcan1, &filterConfig);
+	HAL_CAN_ConfigFilter(&hcan1, &filterConfig); //Assign the filter
 
-	HAL_CAN_Start(&hcan1);
-	HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
+	HAL_CAN_Start(&hcan1); //Activate CAN
+	HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING); //Activate CAN interrupts
 
 	//Enable timer interrupts
 	HAL_TIM_Base_Start_IT(&htim6);
@@ -326,6 +330,7 @@ int main(void) {
 	HAL_StatusTypeDef PWM_Response3 = HAL_TIM_IC_Start_IT(&htim3, TIM_CHANNEL_1);
 	HAL_StatusTypeDef PWM_Response4 = HAL_TIM_IC_Start_IT(&htim3, TIM_CHANNEL_2);
 
+	//Build the name of the datalog from the time
 	get_time();
 	sprintf(datalogName, "datalog_%s.csv", timestamp);
 
@@ -339,13 +344,13 @@ int main(void) {
 
 	//Open and read the config file from the SD card
 	fresult = f_open(&fil, "config.txt",
-	FA_OPEN_EXISTING | FA_READ);
-	if (fresult == FR_OK) {
-		int scaling_Index = 0;
-		char fileRead[512];
-		while (f_gets(fileRead, 512, &fil)) {
+	FA_OPEN_EXISTING | FA_READ); //Try to open an existing config file
+	if (fresult == FR_OK) { //if the file exists, read from it
+		int scaling_Index = 0; //index for the scaling_factors array
+		char fileRead[512]; //temp buffer for the input from the config file
+		while (f_gets(fileRead, 512, &fil)) { //Loop while there is more to read from the config
 			if (fileRead[0] != '/' && fileRead[1] != '/'
-					&& fileRead[0] != '\n') {
+					&& fileRead[0] != '\n') { //Ignore comment lines in the config
 				char *temp;
 				temp = strtok(fileRead, ":"); //Split the string along :
 				temp = strtok(NULL, ":"); //Ignore the first :
@@ -357,7 +362,7 @@ int main(void) {
 				} else {
 					sprintf(headers, "%s,%s", headers, temp); //Append the header to the headers array
 				}
-				temp = strtok(NULL, ":");
+				temp = strtok(NULL, ":"); //Get the final token
 				if (temp != NULL) { //Check for a scaling factor
 					scaling_factors[scaling_Index] = atof(temp); //Add the scaling factor to the list of scaling factor
 					scaling_Index++;
@@ -370,20 +375,20 @@ int main(void) {
 		sprintf(headers, "%s\n", headers);
 		fresult = f_write(&fil, headers, strlen(headers), &bw);
 		f_close(&fil);
-	} else {
+	} else { //Config file not found
 		fresult = f_open(&fil, datalogName,
 		FA_OPEN_APPEND | FA_READ | FA_WRITE);
 		fresult =
 				f_write(&fil,
 						"config.txt not found it has been rebuilt. The data here has not been scaled and falls under default headers,\n",
-						109, &bw);
+						109, &bw); //Inform the user in the datalog that the config wasn't found
 		fresult =
 				f_write(&fil,
 						"Timestamp,Latitude,Longitude,Altitude,A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,PWM0,PWM1,PWM2,PWM3,\n",
-						113, &bw);
+						113, &bw); //Apply basic headers to the datalog
 
 		f_close(&fil);
-		fresult = f_open(&fil, "config.txt",
+		fresult = f_open(&fil, "config.txt", //Reconstruct the config file
 		FA_OPEN_ALWAYS | FA_READ | FA_WRITE);
 		fresult =
 				f_write(&fil,
@@ -398,12 +403,16 @@ int main(void) {
 		}
 	}
 
+	//Assign values to lat, long, and alt
 	sprintf(latitude, "0.00");
 	sprintf(longitude, "0.00");
 	sprintf(altitude, "0.00");
 
+	//Open the datalog file in preparation for new data to be written
 	fresult = f_open(&fil, datalogName,
 	FA_OPEN_APPEND | FA_READ | FA_WRITE);
+
+	//Initialization complete, allow interrupts to progress
 	initialized = 1;
 
 	/* USER CODE END 2 */
@@ -1025,7 +1034,7 @@ void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 	//averaging code
 
-	for (i = 0; i < ADC_BUF_LEN; i += 16) { //Increment through the dma buffer
+	for (int i = 0; i < ADC_BUF_LEN; i += 16) { //Increment through the dma buffer
 		for (int j = 0; j < 16; j++) { //for each adc channel
 			total_ADC[j] += adc_buf[i + j]; //add to an individual sum
 		}
