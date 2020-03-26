@@ -388,9 +388,9 @@ int main(void) {
 		fresult =
 				f_write(&fil,
 						"//The Order of the headers must be maintained (GPS,Analog,PWM,CAN)\n//Lines with " "//" " "
-								"at the beginning will be ignored\n//Do NOT include any commas in the headers\n\n//GPS Headers (Input:Header)\nTime:Timestamp\nLat:Latitude\nLong:Longitude\nAlt:Altitude\n\n//Analog Inputs (Input:Header:Scaling Factor)\nA0:N/A:0\nA1:N/A:0\nA2:N/A:0\nA3:N/A:0\nA4:N/A:0\nA5:N/A:0\nA6:N/A:0\nA7:N/A:0\nA8:N/A:0\nA9:N/A:0\nA10:N/A:0\nA11:N/A:0\n"
-								"A12:N/A:0\nA13:N/A:0\nA14:N/A:0\nA15:N/A:0\n\n//PWM Inputs (Input:Header:Scaling Factor)\nPWM0:N/A:0\nPWM1:N/A:0\n"
-								"PWM2:N/A:0\nPWM3:N/A:0", 529, &bw);
+								"at the beginning will be ignored\n//Do NOT include any commas in the headers\n\n//GPS Headers (Input:Header)\nTime:Timestamp\nLat:Latitude\nLong:Longitude\nAlt:Altitude\n\n//Analog Inputs (Input:Header:Scaling Factor)\nA0:N/A:1\nA1:N/A:1\nA2:N/A:1\nA3:N/A:1\nA4:N/A:1\nA5:N/A:1\nA6:N/A:1\nA7:N/A:1\nA8:N/A:1\nA9:N/A:1\nA10:N/A:1\nA11:N/A:1\n"
+								"A12:N/A:1\nA13:N/A:1\nA14:N/A:1\nA15:N/A:1\n\n//PWM Inputs (Input:Header:Scaling Factor)\nPWM0:N/A:1\nPWM1:N/A:1\n"
+								"PWM2:N/A:1\nPWM3:N/A:1", 529, &bw);
 		f_close(&fil);
 
 		for (int i = 0; i < 20; i++) { //set the scaling factors to 1 to retain raw data
