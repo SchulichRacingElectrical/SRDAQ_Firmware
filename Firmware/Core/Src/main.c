@@ -112,7 +112,6 @@ float ADC_Array[16]; //The useful ADC data
 uint16_t adc_buf[ADC_BUF_LEN]; //Circular buffer collecting ADC data
 char uart_rx_buffer[uart_rx_buffer_len]; //Circular buffer collecting UART data
 char gps_msg[uart_rx_buffer_len]; //The uart message received from the GPS
-//int i = 0;
 int initialized = 0; //Boolean to check if initialization is done, lets the interrupts run
 int counter = 5; //Counter used to create a 10Hz function
 float ADC_MAX = 3755; //The max value the ADC can read
