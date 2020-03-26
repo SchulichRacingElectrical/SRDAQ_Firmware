@@ -61,15 +61,7 @@ UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-uint32_t raw_ADC[16];
 
-uint32_t total_ADC[16];
-float ADC_Array[16];
-uint16_t adc_buf[ADC_BUF_LEN];
-int i = 0;
-int initialized = 0;
-int counter = 5;
-float ADC_MAX = 3755;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -111,6 +103,15 @@ float scaling_factors[20];
 uint8_t CANresponse[50];
 CAN_RxHeaderTypeDef RxCanHeader;
 
+uint32_t raw_ADC[16];
+
+uint32_t total_ADC[16];
+float ADC_Array[16];
+uint16_t adc_buf[ADC_BUF_LEN];
+int i = 0;
+int initialized = 0;
+int counter = 5;
+float ADC_MAX = 3755;
 
 //PWM sample arrays
 uint32_t IC_Value1[4];
@@ -330,12 +331,6 @@ int main(void) {
 
 	//Mount SD Card
 	fresult = f_mount(&fs, "", 0);
-//	if (fresult != FR_OK)
-//		send_uart("error mounting SD CARD.... \n");
-//	else
-//		send_uart("SD CARD mounted....\n");
-
-	//gps stuff can go here
 
 	//Get total and free space
 	f_getfree("", &fre_clust, &pfs);
